@@ -1,1 +1,1 @@
-# students_evaluation-portal
+# student-evaluation-portal
