@@ -3,8 +3,6 @@ import { Route, Routes } from 'react-router-dom'
 import { Login } from './components'
 import { AdminPage } from './pages'
 
-
-
 function App() {
   return (
     <Routes>
