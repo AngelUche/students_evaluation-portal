@@ -16,6 +16,7 @@ function AdminPage() {
             <Route element={<Navigation />}>
                 {/* Default route */}
                 <Route index element={<Home />} />
+                {/* Sub-routes */}
                 <Route path="userprofile" element={<UserProfile />} />
                 <Route path="adduser" element={<AddUser />} />
                 <Route path="viewresult" element={<ViewResult />} />
