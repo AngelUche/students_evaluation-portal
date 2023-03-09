@@ -1,7 +1,14 @@
 // jshint esversion:6
+import { SearchBar as SearchBarAdmin } from "../../../components/admin"
 
 function Home() {
-    return <p>THis is the Home area</p>
+    return (
+        <>
+            <div>
+                <SearchBarAdmin />
+            </div>
+        </>
+    )
 }
 
 export { Home }

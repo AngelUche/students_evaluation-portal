@@ -14,7 +14,7 @@ function AdminPage() {
             {/* Layout Route - doesn't add any segment to the url */}
             {/* Rendered with child components */}
             <Route element={<Navigation />}>
-                {/* Default route */}
+                {/* Default sub-route */}
                 <Route index element={<Home />} />
                 {/* Sub-routes */}
                 <Route path="userprofile" element={<UserProfile />} />
