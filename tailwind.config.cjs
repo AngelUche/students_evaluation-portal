@@ -15,6 +15,7 @@ module.exports = {
       colors: {
         pry: "#03256c",
         prylg: "#0a369d",
+        sideNavbg: "#0b3142",
       },
     },
   },
