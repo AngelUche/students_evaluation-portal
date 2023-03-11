@@ -18,9 +18,9 @@ function Navigation() {
     return (
         <div onClick={closeNav}>
             {/* Admin Navigation - Visible across all screen sizes */}
-            <nav className="sticky top-0 w-full h-[60px] flex items-center justify-center px-2 py-2 md:px-6 md:py-2 bg-red-400" onClick={(e) => e.stopPropagation()}>
+            <nav className="sticky top-0 w-full h-[60px] flex items-center justify-center px-2 py-2 md:px-6 md:py-2 bg-[#0049d1] " onClick={(e) => e.stopPropagation()}>
                 <div className="w-full h-full flex justify-between items-center">
-                    <h1 className="text-3xl text-[#00df9a] font-bold">Virtuos</h1>
+                    <h1 className="text-3xl text-white font-bold">Virtuos</h1>
 
                     {/* Mobile hamburger open and close menu */}
                     <div className="block md:hidden cursor-pointer" onClick={toggleNav} >
@@ -51,7 +51,7 @@ function Navigation() {
                 </div>
 
                 {/* Outlet viewing area */}
-                <div className="h-full bg-blue-300">
+                <div className="h-full">
                     <Outlet />
                 </div>
             </div>

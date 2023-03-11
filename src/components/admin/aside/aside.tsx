@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom"
 function AsideNavigation() {
     return (
         <>
-            <aside className="h-full w-full relative overflow-y-auto bg-[rgb(6,40,99)] shadow-lg">
+            <aside className="h-full w-full relative overflow-y-auto bg-[#062863] shadow-lg">
                 <h1 className="p-5 mb-2 absolute font-bold text-white text-2xl md:hidden">Vitcrous</h1>
                 <div className="h-full flex flex-col justify-center gap-3">
                     <NavLink to="" end
