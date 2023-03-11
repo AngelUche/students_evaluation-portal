@@ -16,9 +16,9 @@ function Navigation() {
     }
 
     return (
-        <div>
+        <div onClick={closeNav}>
             {/* Admin Navigation - Visible across all screen sizes */}
-            <nav className="sticky top-0 w-full h-[60px] flex items-center justify-center px-2 py-2 md:px-6 md:py-2 bg-red-400">
+            <nav className="sticky top-0 w-full h-[60px] flex items-center justify-center px-2 py-2 md:px-6 md:py-2 bg-red-400" onClick={(e) => e.stopPropagation()}>
                 <div className="w-full h-full flex justify-between items-center">
                     <h1 className="text-3xl text-[#00df9a] font-bold">Virtuos</h1>
 
@@ -32,14 +32,14 @@ function Navigation() {
             {/* Mobile Navigation */}
             {navOpen &&
                 (
-                <div className="fixed top-0 bottom-0 w-3/4 max-w-[250px] md:hidden" onClick={closeNav}>
+                <div className="fixed top-0 bottom-0 w-3/4 max-w-[250px] md:hidden z-10" onClick={closeNav}>
                         <AsideNavigation />
                     </div>
                 )
             }
 
             {/* Mobile Outlet Viewing Area */}
-            <div className="bg-blue-300 md:hidden">
+            <div className="md:hidden fixed top-[60px] left-0 right-0 bottom-0 overflow-y-auto h-full bg-slate-50">
                 <Outlet />
             </div>
 
@@ -51,7 +51,7 @@ function Navigation() {
                 </div>
 
                 {/* Outlet viewing area */}
-                <div className="flex items-center justify-center">
+                <div className="h-full bg-blue-300">
                     <Outlet />
                 </div>
             </div>

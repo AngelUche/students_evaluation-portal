@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom"
 function AsideNavigation() {
     return (
         <>
-            <aside className="h-full w-full relative overflow-y-auto bg-[#062863] shadow-lg z-20">
-                <h1 className="p-5 mb-2 absolute font-bold text-green-700 text-2xl md:hidden">Vitcrous</h1>
+            <aside className="h-full w-full relative overflow-y-auto bg-[rgb(6,40,99)] shadow-lg">
+                <h1 className="p-5 mb-2 absolute font-bold text-white text-2xl md:hidden">Vitcrous</h1>
                 <div className="h-full flex flex-col justify-center gap-3">
                     <NavLink to="" end
                         className={({ isActive }) => `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${isActive ? "bg-[#0a369d] px-5 border-l-4" : undefined}`}>
