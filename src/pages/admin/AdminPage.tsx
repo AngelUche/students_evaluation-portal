@@ -1,12 +1,7 @@
 // jshint esversion:6
 import { Route, Routes } from "react-router-dom";
 import { Navigation } from "../../components/admin";
-import { Home } from "./home";
-import { UserProfile } from "./user_profile"
-import { AddUser } from "./add_user";
-import { BroadcastMail } from "./broadcast_mail";
-import { PasswordReset } from "./password_reset";
-import { ViewResult } from "./view_result";
+import { Home, UserProfile, ViewResult, BroadcastMail, PasswordReset, AddUser } from "./subroutes";
 
 function AdminPage() {
     return (
@@ -16,7 +11,7 @@ function AdminPage() {
             <Route element={<Navigation />}>
                 {/* Default sub-route */}
                 <Route index element={<Home />} />
-                {/* Sub-routes */}
+                {/* Other Sub-routes */}
                 <Route path="userprofile" element={<UserProfile />} />
                 <Route path="adduser" element={<AddUser />} />
                 <Route path="viewresult" element={<ViewResult />} />

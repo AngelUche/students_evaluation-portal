@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom"
 function AsideNavigation() {
     return (
         <>
-            <aside className="h-full w-full relative overflow-y-auto bg-[#0f5257] shadow-lg">
-                <h1 className="p-5 mb-2 absolute font-bold text-white text-2xl md:hidden">Vitcrous</h1>
-                <div className="h-full flex flex-col justify-center gap-3">
+            <aside className="w-full h-full bg-[#0f5257] shadow-lg overflow-y-auto">
+                {/* <h1 className="p-5 mb-2 absolute font-bold text-white text-2xl md:hidden">Vitcrous</h1> */}
+                <div className="h-full flex flex-col justify-center gap-y-3">
                     <NavLink to="" end
                         className={({ isActive }) => `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${isActive ? "bg-sideNavbg px-5 border-l-4" : undefined}`}>
                         <span className="footer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-house-fill" viewBox="0 0 16 16">

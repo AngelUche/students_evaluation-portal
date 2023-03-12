@@ -11,6 +11,7 @@ module.exports = {
       },
       fontFamily: {
         arial: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+        mono: "monospace",
       },
       colors: {
         pry: "#03256c",
