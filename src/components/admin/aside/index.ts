@@ -1,1 +1,1 @@
-export { AsideNavigation } from "./Aside";
+export { AsideNavigation } from "./aside";

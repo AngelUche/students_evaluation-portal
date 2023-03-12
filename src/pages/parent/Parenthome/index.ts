@@ -1,0 +1,1 @@
+export {ParenttHome} from './ParentHome'
