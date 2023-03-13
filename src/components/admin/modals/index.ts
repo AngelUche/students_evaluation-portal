@@ -1,1 +1,1 @@
-export { UserProfileModal } from "./userprofile";
+export { UserPreviewModal } from "./userpreview";

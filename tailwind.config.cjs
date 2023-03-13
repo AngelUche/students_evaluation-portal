@@ -29,6 +29,7 @@ module.exports = {
         pry: "#03256c",
         prylg: "#0a369d",
         sideNavbg: "#0b3142",
+        danger: "#d9534f",
       },
     },
   },

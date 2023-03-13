@@ -4,6 +4,7 @@ import { UserModalContext } from "../../../../contexts/admin";
 import avatar from "../../../../assets/admin/avatar.jpg";
 import { useNavigate } from "react-router-dom";
 import { AllData } from "../../../../data/admin";
+import { CancelSVG } from "../../../../assets/admin";
 
 interface UserProfileModalProps {
     id: number | undefined
@@ -14,14 +15,17 @@ function retrieveUserData(id: number) {
     return User;
 }
 
-function UserProfileModal({ id }: UserProfileModalProps) {
+function UserPreviewModal({ id }: UserProfileModalProps) {
+    console.log(avatar);
     const { showUser, toggleUserModal } = useContext(UserModalContext);
 
+    // Return a navigator
     const navigate = useNavigate();
 
     // Fetch User Details
     const User = retrieveUserData(showUser.id!);
 
+    // Navigate to user profile upon submit
     function handleViewProfileClick() {
         navigate("/admin/userprofile");
     }
@@ -29,7 +33,7 @@ function UserProfileModal({ id }: UserProfileModalProps) {
     return (
         <div className="w-[350px] bg-white rounded-[10px] overflow-hidden shadow-xl" onClick={(e) => e.stopPropagation()}>
             <div className="flex flex-col">
-                <img className="w-full h-[240px]" src={avatar} alt="avatar-img" />
+                <img className="w-[350px] h-[240px]" src={User!.image} alt="avatar-img" />
                 <div className="flex flex-col gap-3 py-6 px-5">
                     <div className="flex justify-between items-start">
                         <div className="flex flex-col justify-between">
@@ -37,7 +41,7 @@ function UserProfileModal({ id }: UserProfileModalProps) {
                             <span className="text-[12px] text-gray-500">ID: {User!.id}</span>
                         </div>
                         <div className="h-full flex flex-col gap-1 justify-between items-end">
-                            <p className="text-[10px] text-gray-500 font-mono">Last login: 07 Aug 2023, 14.04PM</p>
+                            <p className="text-[10px] text-gray-500 font-mono">Last login: 07 Aug 2023, 14:04PM</p>
                             {User!.classDesignation && <p className="text-[12px] text-gray-800 font-mono">Class: {User!.classDesignation}</p>}
                             <a href={`mailto:${User!.email}`} className="text-[12px] text-blue-700 font-mono">{User!.email}</a>
                         </div>
@@ -50,14 +54,20 @@ function UserProfileModal({ id }: UserProfileModalProps) {
                             <p className="text-sm text-gray-700 pb-2 border-b-[1px] border-gray-300">{User!.phoneNumber}</p>
                         </div>
                     </div>
-                    <button className="p-1 py-3 mt-3 rounded bg-[#038f4d] text-white hover:bg-[#055c32]" onClick={(e) => {
-                        e.stopPropagation();
-                        handleViewProfileClick();
-                    }}>View Profile</button>
+                    <div className="grid grid-cols-[5fr,_1fr] gap-3">
+                        <button className="p-1 py-3 mt-3 rounded bg-[#038f4d] text-white hover:bg-[#055c32]" onClick={(e) => {
+                            e.stopPropagation();
+                            handleViewProfileClick();
+                        }}>View Profile</button>
+                        <button className="p-1 py-3 mt-3 flex justify-center items-center rounded bg-danger text-white hover:bg-[#a5201b] " onClick={(e) => {
+                            e.stopPropagation();
+                            toggleUserModal({ status: false, id: undefined })
+                        }}><CancelSVG /></button>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
 
-export { UserProfileModal }
+export { UserPreviewModal }

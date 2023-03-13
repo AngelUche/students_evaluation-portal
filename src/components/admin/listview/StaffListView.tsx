@@ -19,7 +19,7 @@ function StaffListView() {
             </div>
             <div className="border w-full max-h-[300px] overflow-y-auto overflow-x-hidden rounded-b-md">
                 {staffData.map((staff) => {
-                    return <ListItem key={staff.id} id={staff.id} name={staff.name} position={staff.position} />
+                    return <ListItem key={staff.id} id={staff.id} name={staff.name} position={staff.position} img={staff.image} />
                 })}
             </div>
         </div>

@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { SearchBar as SearchBarAdmin, StaffListView, StudentListView } from "../../../../components/admin"
 import { UserModalContext } from "../../../../contexts/admin";
-import { UserProfileModal } from "../../../../components/admin/modals";
+import { UserPreviewModal } from "../../../../components/admin/modals";
 
 function Home() {
     const { showUser, toggleUserModal } = useContext(UserModalContext)
@@ -13,7 +13,7 @@ function Home() {
                 <div className="fixed top-[60px] bottom-0 left-0 md:left-[250px] right-0 overflow-y-auto flex justify-center items-center bg-[#00000044]" onClick={() => {
                     toggleUserModal({ status: false, id: undefined });
                 }}>
-                    <UserProfileModal id={showUser.id} />
+                    <UserPreviewModal id={showUser.id} />
                 </div>
             )}
 

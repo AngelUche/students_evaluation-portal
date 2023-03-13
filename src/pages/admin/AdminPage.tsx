@@ -6,6 +6,7 @@ import { UserModalContextProvider } from "../../contexts/admin/adminModalsContex
 
 function AdminPage() {
     return (
+        // Context to manage rendering of modal
         <UserModalContextProvider>
             <Routes>
                 {/* Layout Route - doesn't add any segment to the url */}

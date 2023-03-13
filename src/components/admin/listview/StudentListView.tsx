@@ -19,7 +19,7 @@ function StudentListView() {
             </div>
             <div className="border w-full max-h-[300px] overflow-y-auto overflow-x-hidden rounded-b-md">
                 {studentData.map((student) => {
-                    return <ListItem key={student.id} id={student.id} name={student.name} classDesignation={student.classDesignation} />
+                    return <ListItem key={student.id} id={student.id} name={student.name} classDesignation={student.classDesignation} img={student.image}/>
                 })}
             </div>
         </div>
