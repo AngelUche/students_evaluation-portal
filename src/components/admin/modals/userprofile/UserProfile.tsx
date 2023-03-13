@@ -38,6 +38,7 @@ function UserProfileModal({ id }: UserProfileModalProps) {
                         </div>
                         <div className="h-full flex flex-col gap-1 justify-between items-end">
                             <p className="text-[10px] text-gray-500 font-mono">Last login: 07 Aug 2023, 14.04PM</p>
+                            {User!.classDesignation && <p className="text-[12px] text-gray-800 font-mono">Class: {User!.classDesignation}</p>}
                             <a href={`mailto:${User!.email}`} className="text-[12px] text-blue-700 font-mono">{User!.email}</a>
                         </div>
                     </div>
