@@ -1,0 +1,1 @@
+export { HomeSVG, UserSVG, AddUserSVG, ResultSVG, MailSVG, KeySVG } from "./svg";

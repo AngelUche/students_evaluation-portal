@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 
 const StudentPasswordReset = () => {
   return (
-    <div>
-      <>
+    <>
+      <h1>reset pasword</h1>
+      {/* <div>
         <div className="bg-zinc-500 fixed w-screen h-screen opacity-30"></div>
         <div className="bg-white w-64 lg:w-72 lg:h-auto h-auto  my-36 rounded-2xl fixed z-20 top-10 left-1/4 lg:left-2/4">
           <h1 className="mt-4 font-bold text-red-900 mb-2">View Result</h1>
@@ -75,8 +76,8 @@ const StudentPasswordReset = () => {
             </ul>
           </div>
         </div>
-      </>
-    </div>
+      </div> */}
+    </>
   );
 };
 

@@ -1,1 +1,0 @@
-export { ViewResult } from "./ViewResult";

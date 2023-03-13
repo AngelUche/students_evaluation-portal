@@ -1,1 +1,0 @@
-export { BroadcastMail } from "./BroadcastMail";

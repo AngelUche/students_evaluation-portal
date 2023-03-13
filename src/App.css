@@ -1,7 +1,7 @@
-#root {
-  margin: 0 auto;
-  text-align: center;
-}
+/* #root {
+  margin: 0 auto;       my Angel Loves GLobal styles hahaha 
+  text-align: center;   my Angel Loves GLobal styles hahaha 
+} */
 .Home-page-wraper {
   position: relative;
 }
@@ -27,7 +27,6 @@
   margin: -85px auto;
   left: 34%;
 }
-
 
 @media screen and (min-width: 768px) {
   .logo-svg {
@@ -100,7 +99,6 @@ Sidebar
   margin-right: 1rem;
 }
 
-
 .sidebar {
   position: fixed;
   top: 0;
@@ -126,13 +124,13 @@ Sidebar
 }
 
 /* ======student home page========== */
-.student-image{
+.student-image {
   left: 17.5%;
   /* z-index: -3; */
 }
 .studenthome-image {
-  object-position:center;
-  object-fit:cover;
+  object-position: center;
+  object-fit: cover;
   width: 100%;
   height: 100%;
   display: block;

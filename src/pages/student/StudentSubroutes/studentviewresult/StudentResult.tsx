@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 const StudentResult = () => {
   return (
     <>
-      <div className="bg-zinc-500 fixed w-screen h-screen opacity-30"></div>
+      <h1>result portal</h1>
+      {/* <div className="bg-zinc-500 fixed w-screen h-screen opacity-30"></div>
       <div
         className="bg-white w-64 lg:w-72 lg:h-80 
     h-80  my-36 rounded-2xl fixed z-20 top-10 left-1/4 lg:left-2/4"
@@ -71,7 +72,7 @@ const StudentResult = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
