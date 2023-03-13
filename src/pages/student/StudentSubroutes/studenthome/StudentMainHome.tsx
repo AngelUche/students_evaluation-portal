@@ -8,8 +8,7 @@ const StudentMainHome = () => {
   return (
     <>
       <section className="md:ml-72">
-        <h1>main page</h1>
-        {/* background image setup
+        {/* BACKGROUND IMAGE AND BLUR */}
         <div
           className="student-image h-screen fixed left-0 top-0
          bottom-0 right-0 lg:left-60"
@@ -20,20 +19,20 @@ const StudentMainHome = () => {
             className="object-cover object-center block w-full h-full"
           />
         </div>
-         BACKGROUND BLUR SET UP
+        {/* BACKGROUND BLUR SET UP */}
         <div
           className=" student-image left-0  lg:left-1/4 fixed top-0 h-screen 
           botttom-0 right-0 bg-black opacity-60"
-        ></div> */}
+        ></div>
 
         {/* STUDENT'S  MAIN PAGE SET UP */}
-        {/* <div className=" w-full h-full">
+        <div className=" w-full h-full">
           <section
-            className="text-slate-50 flex fixed right-0 student-image
-             capitalize pt-8 gap-5 pl-8 justify-center lg:justify-around"
+            className="text-slate-50 flex fixed right-0 left-20 student-image lg:left-60
+             capitalize pt-20 lg:pt-11 pl-8 lg:justify-around justify-between "
           >
             <div className=" mr-1">
-              student's name
+              {/* student's name */}
               <p className="ml-2">
                 hello
                 <span className="ml-2 uppercase text-amber-500 font-bold">
@@ -42,7 +41,7 @@ const StudentMainHome = () => {
               </p>
             </div>
             <div className="p-2 font-semibold">
-              student class
+              {/* student class */}
               <p className="text-xs">class</p>
               <p className="text-lg">{list.class}</p>
             </div>
@@ -52,7 +51,7 @@ const StudentMainHome = () => {
                 <p>{list.userStatus}</p>
               </div>
               <div className=" w-10 h-10 ml-1 overflow-hidden rounded-full">
-                student profile
+                {/* student profile  image*/}
                 <img
                   src={login}
                   alt="logo"
@@ -63,25 +62,25 @@ const StudentMainHome = () => {
           </section>
           <section
             className="student-image md:left-1/4 text-slate-50 fixed right-0 flex-col 
-            gap-y-9 h-28 items-center text-lg top-52 flex  justify-center"
+            gap-y-9 h-28 items-center text-lg top-72 flex  justify-center"
           >
-            <h1 className="font-bold ml-6">
+            <h1 className="font-bold">
               Good Day
               <span className="text-amber-500 uppercase">{list.name}</span>
             </h1>
-            <h1 className="ml-9">Welcome to your Dashboard</h1>
+            <h1>Welcome to your Dashboard</h1>
           </section>
           EDUCATION DESCRIPTION
           <section
-            className="student-image text-slate-50 fixed right-0 h-32 ml-10
+            className="text-slate-50 fixed right-0 left-0 h-32
             items-center text-lg bottom-24 flex justify-center lg:left-1/4"
           >
-            <div className="w-72 lg:w-96 ml-12">
+            <div className="w-96 md:w-3/5 text-center">
               Education is the passport to the future, for tomorrow belongs to
               those who prepare for it today.
             </div>
           </section>
-        </div> */}
+        </div>
       </section>
     </>
   );
