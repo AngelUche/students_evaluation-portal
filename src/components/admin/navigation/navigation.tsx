@@ -59,7 +59,7 @@ function Navigation() {
         </div>
 
         {/* Outlet viewing area */}
-        <div className="fixed top-[60px] bottom-0 left-[250px] right-0 overflow-y-auto bg-slate-100">
+        <div className="fixed top-[60px] bottom-0 left-[250px] right-0 border-2 border-red-600 overflow-y-auto bg-slate-100">
           <Outlet />
         </div>
       </div>
