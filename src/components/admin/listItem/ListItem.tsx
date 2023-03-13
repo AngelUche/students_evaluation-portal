@@ -1,5 +1,7 @@
 // jshint esversion:6
 import avatar from "../../../assets/admin/avatar.jpg";
+import { useContext } from "react";
+import { UserModalContext } from "../../../contexts/admin";
 
 interface ListItemProps {
     id: number
@@ -9,8 +11,13 @@ interface ListItemProps {
 }
 
 function ListItem({ name, position, classDesignation }: ListItemProps) {
+
+    const { showUser, toggleUserModal } = useContext(UserModalContext)
+
     return (
-        <>
+        <div onClick={() => {
+            toggleUserModal(true);
+        }}>
             <div className="px-3 cursor-pointer hover:border hover:border-violet-500">
                 <div className="py-3 flex items-center gap-3 border-b border-b-[#bbbbe7] hover:border-none">
                     <div className="w-[45px] h-[45px] rounded-md overflow-hidden">
@@ -23,7 +30,7 @@ function ListItem({ name, position, classDesignation }: ListItemProps) {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
