@@ -7,7 +7,7 @@ import { AllData } from "../../../../data/admin";
 import { CancelSVG } from "../../../../assets/admin";
 
 interface UserProfileModalProps {
-    id: number | undefined
+    id: number | undefined;
 }
 
 function retrieveUserData(id: number) {
@@ -16,10 +16,8 @@ function retrieveUserData(id: number) {
 }
 
 function UserPreviewModal({ id }: UserProfileModalProps) {
-    console.log(avatar);
     const { showUser, toggleUserModal } = useContext(UserModalContext);
 
-    // Return a navigator
     const navigate = useNavigate();
 
     // Fetch User Details

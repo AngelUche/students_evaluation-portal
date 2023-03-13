@@ -1,4 +1,4 @@
-import login from "../../../assets/login.jpg";
+import login from "../../../../assets/login.jpg";
 
 const Studenttable = () => {
   return (
