@@ -4,19 +4,19 @@ const staffData = [
         id: 148464,
         section: "staff",
         name: "Emmanuel Nnaemeka",
-        position: "Mechanic"
+        position: "Security"
     },
     {
         id: 2435435,
         section: "staff",
         name: "Lolade ComputeWell",
-        position: "Gatewoman"
+        position: "Mechanic"
     },
     {
         id: 534351,
         section: "staff",
         name: "Sanctus Peter",
-        position: "Security"
+        position: "Proprietor"
     },
     {
         id: 949641,

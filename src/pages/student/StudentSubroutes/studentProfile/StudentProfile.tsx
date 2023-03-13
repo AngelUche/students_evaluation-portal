@@ -1,6 +1,7 @@
 import React from "react";
-import login from "../../../assets/login.jpg";
+import login from "../../../../assets/login.jpg";
 import Studenttable from "./Studenttable";
+// import { Outlet } from "react-router-dom";
 
 const StudentProfile = () => {
   return (
@@ -26,6 +27,7 @@ const StudentProfile = () => {
         </div>
       </div>
       <Studenttable />
+      {/* <Outlet /> */}
     </section>
   );
 };

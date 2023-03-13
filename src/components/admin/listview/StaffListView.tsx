@@ -13,7 +13,7 @@ function StaffListView() {
                 </svg></span>
 
                 <div className="flex justify-between basis-full">
-                    <span className="text-white font-bold">Staffs</span>
+                    <span className="text-white font-bold">Staff</span>
                     <span className="text-white font-mono">23</span>
                 </div>
             </div>
