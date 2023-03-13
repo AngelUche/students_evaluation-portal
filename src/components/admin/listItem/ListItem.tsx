@@ -10,13 +10,13 @@ interface ListItemProps {
     classDesignation?: string
 }
 
-function ListItem({ name, position, classDesignation }: ListItemProps) {
+function ListItem({ id, name, position, classDesignation }: ListItemProps) {
 
     const { showUser, toggleUserModal } = useContext(UserModalContext)
 
     return (
         <div onClick={() => {
-            toggleUserModal(true);
+            toggleUserModal({ status: true, id});
         }}>
             <div className="px-3 cursor-pointer hover:border hover:border-violet-500">
                 <div className="py-3 flex items-center gap-3 border-b border-b-[#bbbbe7] hover:border-none">

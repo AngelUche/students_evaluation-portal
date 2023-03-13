@@ -1,9 +1,14 @@
 // jshint esversion:6
 import { useState, createContext, ReactNode } from "react";
 
+interface ShowUser {
+    status: boolean
+    id: number | undefined
+}
+
 interface useModalContextProps {
-    showUser: boolean
-    toggleUserModal: (bool: boolean) => void
+    showUser: { status: boolean, id: number | undefined }
+    toggleUserModal: (User: ShowUser) => void
 }
 
 interface UserModalContextProviderProps {
@@ -13,10 +18,13 @@ interface UserModalContextProviderProps {
 export const UserModalContext = createContext({} as useModalContextProps);
 
 export function UserModalContextProvider({ children }: UserModalContextProviderProps) {
-    const [showUser, setShowUser] = useState<boolean>(false);
+    const [showUser, setShowUser] = useState<ShowUser>({
+        status: false,
+        id: undefined
+    });
 
-    function toggleUserModal(bool: boolean) {
-        setShowUser(bool);
+    function toggleUserModal(User: ShowUser) {
+        setShowUser(User);
     }
 
     const value = { showUser, toggleUserModal };
