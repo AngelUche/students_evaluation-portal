@@ -5,7 +5,6 @@ import { Home, UserProfile, ViewResult, BroadcastMail, PasswordReset, AddUser } 
 import { UserModalContextProvider } from "../../contexts/admin/adminModalsContext";
 
 function AdminPage() {
-
     return (
         <UserModalContextProvider>
             <Routes>

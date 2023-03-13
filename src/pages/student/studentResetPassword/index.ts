@@ -1,0 +1,1 @@
+export {StudentPasswordReset} from './PasswordReset'

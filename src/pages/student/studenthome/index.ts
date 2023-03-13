@@ -1,0 +1,1 @@
+export {StudentHome} from './StudentHome'

@@ -13,7 +13,7 @@ interface UserModalContextProviderProps {
 export const UserModalContext = createContext({} as useModalContextProps);
 
 export function UserModalContextProvider({ children }: UserModalContextProviderProps) {
-    const [showUser, setShowUser] = useState<boolean>(true);
+    const [showUser, setShowUser] = useState<boolean>(false);
 
     function toggleUserModal(bool: boolean) {
         setShowUser(bool);
