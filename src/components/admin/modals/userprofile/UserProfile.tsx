@@ -26,7 +26,10 @@ function UserProfileModal() {
                         className="w-full p-3"
                         aria-label="Select a breed of dog to display results"
                         value={selectedClass}
-                        onChange={(event) => setSelectedClass(event.target.value)}
+                        onChange={(event) => {
+                            setSelectedClass(event.target.value)
+                            setSlectedMember("");
+                        }}
                     >
                         <option value="" disabled>
                             <span>Select Member Class</span>
