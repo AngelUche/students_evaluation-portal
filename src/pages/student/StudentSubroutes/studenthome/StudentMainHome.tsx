@@ -1,5 +1,3 @@
-import { GiHamburgerMenu } from "react-icons/gi";
-import { RxCross1 } from "react-icons/rx";
 import login from "../../../../assets/login.jpg";
 
 const list = { name: "uche", class: "ss1", userStatus: "Student" };

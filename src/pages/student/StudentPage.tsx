@@ -6,6 +6,7 @@ import {
   StudentProfile,
   StudentPasswordReset,
   StudentResult,
+  StudentResultPortal,
 } from "./StudentSubroutes";
 
 function StudentPage() {
@@ -15,7 +16,7 @@ function StudentPage() {
         <Route index element={<StudentHome />} />
         <Route path="profile" element={<StudentProfile />} />
         <Route path="password" element={<StudentPasswordReset />} />
-        <Route path="result" element={<StudentResult />} />
+        <Route path="result" element={<StudentResultPortal />} />
       </Route>
     </Routes>
   );

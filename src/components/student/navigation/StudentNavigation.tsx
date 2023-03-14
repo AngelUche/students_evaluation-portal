@@ -1,11 +1,11 @@
 import StudentDeskTopsideba from "./sidebar/StudentDeskTopsideba";
-import StudentMobileSideBar from "./sidebar/StudentMobileSideBar";
+import Hambuerger from "./sidebar/Hambuerger";
 
 const StudentNavigation = () => {
   return (
     <>
+      <Hambuerger />
       <StudentDeskTopsideba />
-      <StudentMobileSideBar />
     </>
   );
 };

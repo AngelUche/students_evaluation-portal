@@ -5,7 +5,10 @@ import { NavLink } from "react-router-dom";
 const StudentDeskTopsideba = () => {
   return (
     // SIDE BAR MOBILE VIEW FIXED WITH
-    <aside className=" w-72  pt-28 fixed bottom-0 top-0 bg-[#2b3b3c] shadow-lg overflow-y-auto invisible md:visible">
+    <aside
+      className=" w-72  pt-28 fixed bottom-0 top-0 bg-[#2b3b3c] 
+    shadow-lg overflow-y-auto invisible lg:visible"
+    >
       <div className="flex flex-col gap-y-3">
         <NavLink
           to=""
@@ -38,12 +41,24 @@ const StudentDeskTopsideba = () => {
           }
         >
           <AiFillFile size={25} className="text-[#b4b8b8]" />
+          <span className="text-xl">View Result</span>
+        </NavLink>
+        <NavLink
+          to="result"
+          className={({ isActive }) =>
+            `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${
+              isActive ? "bg-studentactive px-5 border-l-4" : null
+            }`
+          }
+        >
+          <BsKeyFill size={25} className="text-[#b4b8b8]" />
           <span className="text-xl">Reset Password</span>
         </NavLink>
         <NavLink
           to="logout"
           className={({ isActive }) =>
-            `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${
+            `p-4 pl-5 text-white flex justify-start items-center gap-5 
+            hover:border-l-4 mt-48 ${
               isActive ? "bg-studentactive px-5 border-l-4" : null
             }`
           }
