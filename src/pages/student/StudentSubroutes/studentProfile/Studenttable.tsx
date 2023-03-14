@@ -5,8 +5,8 @@ const Studenttable = () => {
     <>
       {/* STUDENNT PROFILE TABLE */}
       <section
-        className="text-black fixed top-28 md:left-64 bg-orange-50
-         left-6 right-4 bottom-24 rounded-lg md:right-9 md:ml-20 md:mr-8 overflow-hidden
+        className="text-black fixed top-28  left-16 right-14  lg:left-72 bg-orange-50
+        bottom-24 rounded-lg lg:right-16 lg:ml-20 lg:mr-8 overflow-hidden
         z-10"
       >
         {/* PROFILE INFORMATION */}

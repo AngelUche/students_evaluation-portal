@@ -8,7 +8,8 @@ const StudentMobileSideBar = () => {
     <>
       <aside
         className=" w-72  pt-28 fixed bottom-0 top-0 bg-[#2b3b3c] 
-    shadow-lg overflow-y-auto visible md:invisible z-3"
+        left-0
+    shadow-lg overflow-y-auto visible lg:invisible z-30"
       >
         <div className="flex flex-col gap-y-3">
           <NavLink
@@ -33,6 +34,13 @@ const StudentMobileSideBar = () => {
             <BsFillPersonFill size={25} />
             <span className="text-xl">Student profile</span>
           </NavLink>
+          <button
+            className="
+              p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4"
+          >
+            <AiFillFile size={25} className="text-[#b4b8b8]" />
+            <span className="text-xl">View Result</span>
+          </button>
           <NavLink
             to="result"
             className={({ isActive }) =>
@@ -41,13 +49,14 @@ const StudentMobileSideBar = () => {
               }`
             }
           >
-            <AiFillFile size={25} className="text-[#b4b8b8]" />
+            <BsKeyFill size={25} className="text-[#b4b8b8]" />
             <span className="text-xl">Reset Password</span>
           </NavLink>
           <NavLink
             to="logout"
             className={({ isActive }) =>
-              `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${
+              `p-4 pl-5 text-white flex justify-start items-center 
+              gap-5 hover:border-l-4 mt-48 ${
                 isActive ? "bg-studentactive px-5 border-l-4" : null
               }`
             }
