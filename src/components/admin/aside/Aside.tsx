@@ -15,7 +15,7 @@ function AsideNavigation() {
                     </NavLink>
                     <NavLink to="userprofile"
                         className={({ isActive }) => `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${isActive ? "bg-sideNavbg px-5 border-l-4" : undefined}`}>
-                        <UserSVG />
+                        <UserSVG size={25}/>
                         <span className="text-xl">User Profiles</span>
                     </NavLink>
                     <NavLink to="adduser"

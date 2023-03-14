@@ -50,7 +50,7 @@ const AllData = [
         address: "1, Street Road, LGA, State, Country",
         position: "Student",
         phoneNumber: "+234816234787",
-        classDesignation: "Alumni",
+        classDesignation: "JS2",
         image: EmmanuelImg
     },
     {
@@ -80,7 +80,7 @@ const AllData = [
         position: "Student",
         phoneNumber: "+234816234787",
         address: "1, Street Road, LGA, State, Country",
-        classDesignation: "JSS1",
+        classDesignation: "JS1",
         image: AngelImg
     },
 ]

@@ -6,7 +6,7 @@ interface ShowUser {
     id: number | undefined
 }
 
-interface useModalContextProps {
+interface userModalContextProps {
     showUser: { status: boolean, id: number | undefined }
     toggleUserModal: (User: ShowUser) => void
 }
@@ -15,7 +15,7 @@ interface UserModalContextProviderProps {
     children: ReactNode
 }
 
-export const UserModalContext = createContext({} as useModalContextProps);
+export const UserModalContext = createContext({} as userModalContextProps);
 
 export function UserModalContextProvider({ children }: UserModalContextProviderProps) {
     const [showUser, setShowUser] = useState<ShowUser>({

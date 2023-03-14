@@ -1,1 +1,2 @@
-export { UserModalContext, UserModalContextProvider } from "./adminModalsContext";
+export { UserModalContext, UserModalContextProvider } from "./adminUserPreviewModalContext";
+export { UserProfileModalContext, UserProfileModalContextProvider } from "./adminUserProfileModalContext";

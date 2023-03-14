@@ -1,1 +1,1 @@
-export { HomeSVG, UserSVG, AddUserSVG, ResultSVG, MailSVG, KeySVG, CancelSVG } from "./svg";
+export { HomeSVG, UserSVG, AddUserSVG, ResultSVG, MailSVG, KeySVG, CancelSVG, PersonvcardSVG } from "./svg";

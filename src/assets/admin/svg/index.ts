@@ -5,3 +5,4 @@ export { ResultSVG } from "./resultSVG";
 export { MailSVG } from "./mailSVG";
 export { KeySVG } from "./keySVG";
 export { CancelSVG } from "./cancelSVG";
+export { PersonvcardSVG } from "./personVcard";
