@@ -40,7 +40,7 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
                 <div className="flex flex-col gap-3 py-6 px-5">
                     <div className="flex justify-between items-start">
                         <div className="flex flex-col justify-between">
-                            <h3>{User!.position}</h3>
+                            <h3 className="text-gray-700">{User!.position}</h3>
                             <span className="text-[12px] text-gray-500">ID: {User!.id}</span>
                         </div>
                         <div className="h-full flex flex-col gap-1 justify-between items-end">

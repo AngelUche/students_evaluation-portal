@@ -23,10 +23,10 @@ function UserProfileView({ id }: UserProfileViewProps) {
     }
 
     return (
-        <div className="h-full max-w-[900px] mx-auto px-6 py-[30px] flex flex-col gap-y-3 justify-between">
+        <div className="h-full max-w-[900px] mx-auto px-6 py-[30px]">
 
             {/* Form box */}
-            <div className="shadow-md p-9 bg-[#fffcfc]">
+            <div className="shadow-md py-5 px-4 bg-[#fffcfc]">
                 <div className="flex flex-col gap-5">
                     <div className="py-3 border-b-[1px] border-b-gray-400 flex items-center gap-3">
                         {/* User Rounded Image */}
@@ -45,9 +45,9 @@ function UserProfileView({ id }: UserProfileViewProps) {
                     </div>
 
                     {/* Form fields */}
-                    <div className="flex flex-col gap-y-2 max-h-[40vh] overflow-y-auto">
+                    <div className="flex flex-col gap-y-2 max-h-[50vh] overflow-y-auto">
                         {/* Name Section */}
-                        <div className="flex flex-col md:flex-row gap-2">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                             {/* FirstName */}
                             <div className="flex flex-col basis-full">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="surname">First name</label>
@@ -111,7 +111,7 @@ function UserProfileView({ id }: UserProfileViewProps) {
                 </div>
             </div>
 
-            <div className="flex justify-center">
+            <div className="mt-5 flex justify-center">
                 <button className="w-full max-w-[300px] mx-auto rounded uppercase py-3 bg-[blue] hover:bg-[#0202c5] hover:shadow-xl text-white font-mono font-bold" onClick={handleViewProfileClick} >View user profile</button>
             </div>
         </div >
