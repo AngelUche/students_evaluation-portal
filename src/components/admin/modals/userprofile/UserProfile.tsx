@@ -33,7 +33,7 @@ function UserProfileModal({ toggleModal }: UserProfileModalProps) {
             <div className="flex flex-col gap-y-5">
                 <div>
                     <select
-                        className="w-full p-3 rounded outline-none focus:border-2 focus:border-[#0f5257]"
+                        className="w-full p-3 rounded outline-none text-gray-700 focus:border-2 focus:border-[#0bdf8d]"
                         aria-label="Select a list of class names to get available students"
                         value={selectedClass}
                         onChange={(event) => {
@@ -59,7 +59,7 @@ function UserProfileModal({ toggleModal }: UserProfileModalProps) {
                 <div>
                     <div>
                         <select
-                            className="w-full p-3 rounded outline-none focus:border-2 focus:border-[#0f5257]"
+                            className="w-full p-3 rounded outline-none text-gray-700 focus:border-2 focus:border-[#0bdf8d]"
                             aria-label="Select a list of members of a class to view profile"
                             value={selectedMember}
                             onChange={(event) => {
