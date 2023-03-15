@@ -1,7 +1,7 @@
 // jshint esversion:6
 import avatar from "../../../assets/admin/avatar.jpg";
 import { useContext } from "react";
-import { UserModalContext } from "../../../contexts/admin";
+import { UserPreviewModalContext } from "../../../contexts/admin";
 
 interface ListItemProps {
     id: number
@@ -13,11 +13,11 @@ interface ListItemProps {
 
 function ListItem({ id, name, position, classDesignation, img }: ListItemProps) {
 
-    const { showUser, toggleUserModal } = useContext(UserModalContext)
+    const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext)
 
     return (
         <div onClick={() => {
-            toggleUserModal({ status: true, id });
+            toggleShowUserPreview({ status: true, id });
         }}>
             <div className="px-3 cursor-pointer hover:border hover:border-violet-500">
                 <div className="py-3 flex items-center gap-3 border-b border-b-[#bbbbe7] hover:border-none">

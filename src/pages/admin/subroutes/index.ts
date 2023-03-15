@@ -1,4 +1,4 @@
-export { UserProfileRoute } from "./user_profile";
+export { UserProfilePage } from "./user_profile";
 export { BroadcastMail } from "./broadcast_mail";
 export { PasswordReset } from "./password_reset";
 export { Home } from "./home";

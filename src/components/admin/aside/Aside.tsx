@@ -1,11 +1,22 @@
 // jshint esversion:6
 import { NavLink } from "react-router-dom"
 import { HomeSVG, UserSVG, AddUserSVG, ResultSVG, MailSVG, KeySVG } from "../../../assets/admin"
+import { useContext, Fragment } from "react"
+import { UserPreviewModalContext, UserProfileModalContext } from "../../../contexts/admin"
 
 function AsideNavigation() {
+    const { showUserProfile, toggleShowUserProfile } = useContext(UserProfileModalContext);
+    const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext)
+
+    // Close all modals upon any click in the side navigation bar
+    function handleCloseAllModalsClick() {
+        toggleShowUserProfile({ status: true, id: undefined });
+        toggleShowUserPreview({ status: false, id: undefined });
+    }
+
     return (
         <>
-            <aside className="w-full h-full bg-[#0f5257] shadow-lg overflow-y-auto">
+            <aside className="w-full h-full bg-[#0f5257] shadow-lg overflow-y-auto" onClick={handleCloseAllModalsClick}>
                 {/* <h1 className="p-5 mb-2 absolute font-bold text-white text-2xl md:hidden">Vitcrous</h1> */}
                 <div className="h-full flex flex-col justify-center gap-y-3">
                     <NavLink to="" end
@@ -15,7 +26,7 @@ function AsideNavigation() {
                     </NavLink>
                     <NavLink to="userprofile"
                         className={({ isActive }) => `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${isActive ? "bg-sideNavbg px-5 border-l-4" : undefined}`}>
-                        <UserSVG size={25}/>
+                        <UserSVG size={25} />
                         <span className="text-xl">User Profiles</span>
                     </NavLink>
                     <NavLink to="adduser"
@@ -43,5 +54,4 @@ function AsideNavigation() {
         </>
     )
 }
-
 export { AsideNavigation }

@@ -1,35 +1,35 @@
 // jshint esversion:6
 import { useState, createContext, ReactNode } from "react";
 
-interface ShowUser {
+interface ShowUserPreviewInterface {
     status: boolean
     id: number | undefined
 }
 
-interface userModalContextProps {
-    showUser: { status: boolean, id: number | undefined }
-    toggleUserModal: (User: ShowUser) => void
+interface userPreviewModalContextProps {
+    showUserPreview: { status: boolean, id: number | undefined }
+    toggleShowUserPreview: (User: ShowUserPreviewInterface) => void
 }
 
-interface UserModalContextProviderProps {
+interface UserPreviewModalContextProviderProps {
     children: ReactNode
 }
 
-export const UserModalContext = createContext({} as userModalContextProps);
+export const UserPreviewModalContext = createContext({} as userPreviewModalContextProps);
 
-export function UserModalContextProvider({ children }: UserModalContextProviderProps) {
-    const [showUser, setShowUser] = useState<ShowUser>({
+export function UserPreviewModalContextProvider({ children }: UserPreviewModalContextProviderProps) {
+    const [showUserPreview, setShowUserPreview] = useState<ShowUserPreviewInterface>({
         status: false,
         id: undefined
     });
 
-    function toggleUserModal(User: ShowUser) {
-        setShowUser(User);
+    function toggleShowUserPreview(User: ShowUserPreviewInterface) {
+        setShowUserPreview(User);
     }
 
-    const value = { showUser, toggleUserModal };
+    const value = { showUserPreview, toggleShowUserPreview };
 
     return (
-        <UserModalContext.Provider value={value}>{children}</UserModalContext.Provider>
+        <UserPreviewModalContext.Provider value={value}>{children}</UserPreviewModalContext.Provider>
     );
 }

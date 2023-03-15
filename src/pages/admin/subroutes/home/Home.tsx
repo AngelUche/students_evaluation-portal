@@ -5,21 +5,21 @@ import {
   StaffListView,
   StudentListView,
 } from "../../../../components/admin";
-import { UserModalContext } from "../../../../contexts/admin";
+import { UserPreviewModalContext } from "../../../../contexts/admin";
 import { UserPreviewModal } from "../../../../components/admin/modals";
 
 function Home() {
-  const { showUser, toggleUserModal } = useContext(UserModalContext);
+  const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext);
 
-    return (
-        <div className="w-full h-full">
-            {showUser.status && (
-                <div className="fixed top-[60px] bottom-0 left-0 md:left-[250px] right-0 overflow-y-auto flex justify-center items-center bg-[#00000044]" onClick={() => {
-                    toggleUserModal({ status: false, id: undefined });
-                }}>
-                    <UserPreviewModal id={showUser.id} />
-                </div>
-            )}
+  return (
+    <div className="w-full h-full">
+      {showUserPreview.status && (
+        <div className="fixed top-[60px] bottom-0 left-0 md:left-[250px] right-0 overflow-y-auto flex justify-center items-center bg-[#00000044]" onClick={() => {
+          toggleShowUserPreview({ status: false, id: undefined });
+        }}>
+          <UserPreviewModal id={showUserPreview.id} />
+        </div>
+      )}
 
       <div className="my-16 md:my-20 px-12">
         {/* <div className="w-full flex justify-center my-5">

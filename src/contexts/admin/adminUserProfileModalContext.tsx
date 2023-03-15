@@ -1,17 +1,18 @@
 // jshint esversion:6
 import { createContext, useState, ReactNode } from "react";
 
-interface ShowUserProfile {
+export interface ShowUserProfileInterface {
     status: boolean
-    // id: number | undefined
+    id: number | undefined
 }
 
 // Create interface for context
 interface UserProfileModalContextProps {
     showUserProfile: {
-        status: boolean
+        status: boolean,
+        id: number | undefined
     }
-    toggleShowUserProfile: (UserProfile: ShowUserProfile) => void
+    toggleShowUserProfile: (UserProfile: ShowUserProfileInterface) => void
 }
 
 // Interface for provider function
@@ -24,11 +25,11 @@ export const UserProfileModalContext = createContext({} as UserProfileModalConte
 
 // Create the Context Provider for the UserProfileModal
 export function UserProfileModalContextProvider({ children }: UserProfileModalContextProviderProps) {
-    const [showUserProfile, setShowUserProfile] = useState({ status: true });
+    const [showUserProfile, setShowUserProfile] = useState<ShowUserProfileInterface>({ status: true, id: undefined });
 
     // Toggle Show User Profile
-    function toggleShowUserProfile({ status }: ShowUserProfile) {
-        setShowUserProfile({ status });
+    function toggleShowUserProfile({ status, id }: ShowUserProfileInterface) {
+        setShowUserProfile({ status, id });
     }
 
     // Set the Provider values to expose 

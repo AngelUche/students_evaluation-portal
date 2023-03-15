@@ -1,10 +1,10 @@
 // jshint esversion:6
 import { useContext } from "react";
-import { UserModalContext } from "../../../../contexts/admin";
-import avatar from "../../../../assets/admin/avatar.jpg";
+import { UserPreviewModalContext } from "../../../../contexts/admin";
 import { useNavigate } from "react-router-dom";
 import { AllData } from "../../../../data/admin";
 import { CancelSVG } from "../../../../assets/admin";
+import { UserProfileModalContext } from "../../../../contexts/admin";
 
 interface UserProfileModalProps {
     id: number | undefined;
@@ -16,15 +16,20 @@ function retrieveUserData(id: number) {
 }
 
 function UserPreviewModal({ id }: UserProfileModalProps) {
-    const { showUser, toggleUserModal } = useContext(UserModalContext);
+    const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext);
 
+    // This will disable the Select user profile prompt and redirect to the user profile main page
+    const { toggleShowUserProfile } = useContext(UserProfileModalContext);
+
+    // To enable redirection
     const navigate = useNavigate();
 
     // Fetch User Details
-    const User = retrieveUserData(showUser.id!);
+    const User = retrieveUserData(showUserPreview.id!);
 
     // Navigate to user profile upon submit
     function handleViewProfileClick() {
+        toggleShowUserProfile({ status: false, id: showUserPreview.id });
         navigate("/admin/userprofile");
     }
 
@@ -59,7 +64,7 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
                         }}>View Profile</button>
                         <button className="p-1 py-3 mt-3 flex justify-center items-center rounded bg-danger text-white hover:bg-[#a5201b] " onClick={(e) => {
                             e.stopPropagation();
-                            toggleUserModal({ status: false, id: undefined })
+                            toggleShowUserPreview({ status: false, id: undefined })
                         }}><CancelSVG /></button>
                     </div>
                 </div>

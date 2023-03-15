@@ -1,1 +1,1 @@
-export { UserProfileRoute } from "./UserProfile";
+export { UserProfilePage } from "./UserProfile";

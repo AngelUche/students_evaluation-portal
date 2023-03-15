@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "hero-bg_img": "url('./src/assets/coridor.jpg')",
-        "login": "url('./src/assets/login.jpg')"
+        login: "url('./src/assets/login.jpg')",
       },
       boxShadow: {
         pry: "0 2px 3px -1px rgba(6 40 99 / 0.1), 0 2px 2px -2px rgb(6 40 99 / 0.1)",
@@ -20,7 +20,8 @@ module.exports = {
         sideNavbg: "#0b3142",
         danger: "#d9534f",
         studentactive: "#947154",
-        studntnotactive: "#AB6715"
+        studntnotactive: "#AB6715",
+        formFieldBg: "#eeeeee",
       },
     },
   },
