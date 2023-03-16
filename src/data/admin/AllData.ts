@@ -5,7 +5,6 @@ import EmmanuelImg from "../../assets/admin/Emmanuel.jpg";
 const AllData = [
     {
         id: 148464,
-        section: "staff",
         name: "Emmanuel Nnaemeka",
         firstName: "Emmanuel",
         lastName: "Nnaemeka",
@@ -19,7 +18,6 @@ const AllData = [
     },
     {
         id: 2435435,
-        section: "staff",
         name: "Lolade ComputeWell",
         firstName: "Lolade",
         lastName: "ComputeWell",
@@ -33,7 +31,6 @@ const AllData = [
     },
     {
         id: 534351,
-        section: "staff",
         name: "Sanctus Peter",
         firstName: "Sanctus",
         lastName: "Peter",
@@ -47,7 +44,6 @@ const AllData = [
     },
     {
         id: 949641,
-        section: "staff",
         name: "Angel Uche",
         firstName: "Angel",
         lastName: "Uche",
@@ -55,13 +51,13 @@ const AllData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
-        position: "Proprietess",
+        position: "Proprietress",
+        positionId: 5667,
         gender: "Female",
         image: AngelImg
     },
     {
         id: 546641,
-        section: "student",
         name: "Emmanuel Nnaemeka",
         firstName: "Emmanuel",
         lastName: "Nnaemeka",
@@ -75,7 +71,6 @@ const AllData = [
     },
     {
         id: 254646,
-        section: "student",
         name: "Lolade ComputeWell",
         firstName: "Lolade",
         lastName: "ComputeWell",
@@ -89,7 +84,6 @@ const AllData = [
     },
     {
         id: 156513,
-        section: "student",
         name: "Sanctus Peter",
         firstName: "Sanctus",
         lastName: "Peter",

@@ -1,7 +1,7 @@
 // jshint esversion:6
 import { useContext } from "react";
 import {
-  SearchBar as SearchBarAdmin,
+  // SearchBar as SearchBarAdmin,
   StaffListView,
   StudentListView,
 } from "../../../../components/admin";
@@ -13,6 +13,8 @@ function Home() {
 
   return (
     <div className="w-full h-full">
+
+      {/* Display preview if toggled */}
       {showUserPreview.status && (
         <div className="fixed top-[60px] bottom-0 left-0 md:left-[250px] right-0 overflow-y-auto flex justify-center items-center bg-[#00000044]" onClick={() => {
           toggleShowUserPreview({ status: false, id: undefined });

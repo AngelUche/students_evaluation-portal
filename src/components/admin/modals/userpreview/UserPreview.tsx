@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { UserPreviewModalContext } from "../../../../contexts/admin";
 import { useNavigate } from "react-router-dom";
-import { AllData } from "../../../../data/admin";
+import { AllData} from "../../../../data/admin";
 import { CancelSVG } from "../../../../assets/admin";
 import { UserProfileModalContext } from "../../../../contexts/admin";
 
@@ -11,7 +11,9 @@ interface UserProfileModalProps {
 }
 
 function retrieveUserData(id: number) {
+    // Get User Details
     const User = AllData.find((user) => user.id === id);
+
     return User;
 }
 
@@ -26,6 +28,9 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
 
     // Fetch User Details
     const User = retrieveUserData(showUserPreview.id!);
+    console.log(`User gotten`);
+    console.log(User);
+    
 
     // Navigate to user profile upon submit
     function handleViewProfileClick() {
