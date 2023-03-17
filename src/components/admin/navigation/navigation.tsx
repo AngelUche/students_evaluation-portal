@@ -1,14 +1,9 @@
 // jshint esversion:6
 import { useState } from "react";
-import { Outlet, useOutletContext } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { AsideNavigation } from "../aside";
 import { SearchBar as SearchBarAdmin } from "../searchbar";
-
-type ContextType = {
-  showUser: boolean;
-  toggleUserModal: () => void;
-};
 
 function Navigation() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -77,7 +72,3 @@ function Navigation() {
 }
 
 export { Navigation };
-
-export function useShowUserModal() {
-  return useOutletContext<ContextType>();
-}

@@ -22,6 +22,7 @@ module.exports = {
         studentactive: "#947154",
         studntnotactive: "#AB6715",
         formFieldBg: "#eeeeee",
+        editFormFieldBg: "#ffffff"
       },
     },
   },

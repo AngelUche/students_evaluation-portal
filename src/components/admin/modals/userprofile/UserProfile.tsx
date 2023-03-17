@@ -4,7 +4,6 @@ import { PersonvcardSVG } from "../../../../assets/admin";
 
 // Data fetched from server
 import { classData, AllData, PositionData } from "../../../../data/admin";
-
 import { ShowUserProfileInterface } from "../../../../contexts/admin";
 
 interface UserProfileModalProps {

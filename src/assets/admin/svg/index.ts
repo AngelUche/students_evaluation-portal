@@ -6,3 +6,6 @@ export { MailSVG } from "./mailSVG";
 export { KeySVG } from "./keySVG";
 export { CancelSVG } from "./cancelSVG";
 export { PersonvcardSVG } from "./personVcard";
+export { EditSVG } from "./editSVG";
+export { SaveSVG } from "./saveSVG";
+export { CancelFillSVG } from "./cancelFillSVG";
