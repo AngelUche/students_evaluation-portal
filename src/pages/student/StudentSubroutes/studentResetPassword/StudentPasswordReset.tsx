@@ -7,22 +7,24 @@ const StudentPasswordReset = () => {
         {/* BACKGROUNG BLUR WIDTH:100% HEIGH:100% */}
         <div className="bg-zinc-500 fixed w-screen h-screen opacity-30"></div>
         {/* RESET PASSWORD MODAL WITH A  */}
-        <div className="bg-white w-64 lg:w-72 lg:h-auto h-auto  my-36 rounded-2xl fixed z-20 top-10 left-1/4 lg:left-2/4">
-          <h1 className="mt-4 font-bold text-red-900 mb-2">View Result</h1>
+        <div className="bg-white w-72 lg:w-72 lg:h-auto h-auto  my-36 rounded-2xl fixed z-20 top-10 left-1/4 lg:left-2/4">
+          <h1 className="mt-4 font-bold text-red-900 mb-2 ml-7 text-xl">
+            View Result
+          </h1>
           <div>
             {/* MAIN FORM FOR PASSWORD RESET */}
             <form>
               <div>
                 <label
                   htmlFor="result"
-                  className=" font-bold text-xs flex ml-12 mt-7"
+                  className=" font-bold text-xs flex ml-9 mt-7"
                 >
                   current Password
                 </label>
                 <input
                   type="text"
                   placeholder="Enter Current Password"
-                  className="border-2 rounded-md text-xs
+                  className="border-2 rounded-md text-xs ml-12
                  w-48 h-8  mb-6 hover:cursor-pointer"
                 />
               </div>

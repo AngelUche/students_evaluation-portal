@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Login } from "../login/login";
 
 const GetStarted = () => {
   return (
@@ -8,7 +7,7 @@ const GetStarted = () => {
       <button className="">
         <Link
           to="/login"
-          className=" px-16 py-4 bg-amber-800 capitalize rounded-lg "
+          className=" px-16 md:ml-12 py-4 bg-amber-800 capitalize rounded-lg "
         >
           get started
         </Link>

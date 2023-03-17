@@ -1,6 +1,7 @@
 import { AiFillHome, AiFillFile, AiOutlineLogout } from "react-icons/ai";
 import { BsFillPersonFill, BsKeyFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import { useGlobalContext } from "../../../../contexts/student";
 
 const StudentMobileSideBar = () => {
   return (

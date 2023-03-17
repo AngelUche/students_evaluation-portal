@@ -6,7 +6,7 @@ const StudentResult = () => {
       <div className="bg-zinc-500 fixed w-screen h-screen opacity-30"></div>
       <div
         className="bg-white w-64 lg:w-72 lg:h-80 
-    h-80  my-36 rounded-2xl fixed z-20 top-10 left-1/4 lg:left-2/4"
+           h-80  my-36 rounded-2xl fixed z-20 top-10 left-1/4 lg:left-2/4"
       >
         <h1 className="mt-4 font-bold text-red-900 mb-2">View Result</h1>
         <div>
@@ -24,9 +24,7 @@ const StudentResult = () => {
               id="result"
               className="border-2 rounded-md text-xs w-48 h-8  mb-6 hover:cursor-pointer"
             >
-              <option value="date" className="fex ">
-                2023/2022
-              </option>
+              <option value="date">2023/2022</option>
               <option value="date">2022/2021</option>
               <option value="date">2021/2020</option>
             </select>
@@ -66,7 +64,7 @@ const StudentResult = () => {
                 to="/student/resultt"
                 className="px-6 py-2 rounded-lg bg-yellow-600"
               >
-                view{" "}
+                view
               </Link>
             </li>
           </ul>
