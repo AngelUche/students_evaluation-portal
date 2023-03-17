@@ -135,3 +135,10 @@ Sidebar
   height: 100%;
   display: block;
 }
+.transitiononhover{
+  transition: all 1s linear;
+}
+
+/* .transitiononhover:hover {
+  transition: all 1s linear;
+} */

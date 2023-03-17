@@ -6,15 +6,16 @@ const StudentDeskTopsideba = () => {
   return (
     // SIDE BAR MOBILE VIEW FIXED WITH
     <aside
-      className=" w-72  pt-28 fixed bottom-0 top-0 bg-[#2b3b3c] 
-    shadow-lg overflow-y-auto invisible lg:visible"
+      className=" w-72  pt-28 fixed bottom-0 top-0 bg-[#2b3b3c] shadow-lg overflow-y-auto invisible
+  lg:visible"
     >
       <div className="flex flex-col gap-y-3">
         <NavLink
           to=""
           end
           className={({ isActive }) =>
-            `p-4 mt-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 
+            `p-4 mt-4 pl-5 text-white flex duration-500 hover:transition-all
+            justify-start items-center gap-5 hover:border-l-4
              ${isActive ? "bg-studentactive px-5 border-l-4" : undefined}`
           }
         >
@@ -24,9 +25,9 @@ const StudentDeskTopsideba = () => {
         <NavLink
           to="profile"
           className={({ isActive }) =>
-            `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${
-              isActive ? "bg-studentactive px-5 border-l-4" : undefined
-            }`
+            `p-4 pl-5 text-white flex justify-start items-center gap-5
+             hover:border-l-4 transitiononhover
+              ${isActive ? "bg-studentactive px-5 border-l-4" : undefined}`
           }
         >
           <BsFillPersonFill size={25} />
@@ -35,7 +36,8 @@ const StudentDeskTopsideba = () => {
         <NavLink
           to="result"
           className={({ isActive }) =>
-            `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${
+            `p-4 pl-5 text-white flex justify-start items-center gap-5 transitiononhover
+            hover:border-l-4 ${
               isActive ? "bg-studentactive px-5 border-l-4" : null
             }`
           }

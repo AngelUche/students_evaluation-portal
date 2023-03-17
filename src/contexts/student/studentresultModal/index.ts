@@ -1,0 +1,1 @@
+export { StudentResultcontext, StudentcontextProvider, useGlobalContext} from './StudentResultcontextl'
