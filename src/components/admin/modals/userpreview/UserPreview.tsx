@@ -1,26 +1,25 @@
 // jshint esversion:6
 import { useContext } from "react";
-import { UserPreviewModalContext } from "../../../../contexts/admin";
 import { useNavigate } from "react-router-dom";
-import { AllData} from "../../../../data/admin";
+import { UserPreviewModalContext, UserProfileModalContext } from "../../../../contexts/admin";
 import { CancelSVG } from "../../../../assets/admin";
-import { UserProfileModalContext } from "../../../../contexts/admin";
+import { retrieveUserData } from "../../../../utils/admin";
 
+// Interface for the props of UserPreviewModal
 interface UserProfileModalProps {
     id: number | undefined;
 }
 
-function retrieveUserData(id: number) {
-    // Get User Details
-    const User = AllData.find((user) => user.id === id);
-
-    return User;
-}
-
+/**
+ * @desc: View a preview of the User profile | redirect to the main user profile page
+ * @param id: Id used to retrieve user details from mock DB 
+ * @returns User object containing details about User
+ */
 function UserPreviewModal({ id }: UserProfileModalProps) {
+    // To enable from dashboard | disable User preview modal
     const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext);
 
-    // This will disable the Select user profile prompt and redirect to the user profile main page
+    // This will disable the Select User Profile prompt and redirect to the user profile main page
     const { toggleShowUserProfile } = useContext(UserProfileModalContext);
 
     // To enable redirection
@@ -28,11 +27,8 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
 
     // Fetch User Details
     const User = retrieveUserData(showUserPreview.id!);
-    console.log(`User gotten`);
-    console.log(User);
-    
 
-    // Navigate to user profile upon submit
+    // Navigate to user profile upon request
     function handleViewProfileClick() {
         toggleShowUserProfile({ status: false, id: showUserPreview.id });
         navigate("/admin/userprofile");
@@ -40,8 +36,13 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
 
     return (
         <div className="w-[350px] bg-white rounded-[10px] overflow-hidden shadow-xl" onClick={(e) => e.stopPropagation()}>
+            {/* Preview wrapped */}
             <div className="flex flex-col">
+                
+                {/* Preview Hero image */}
                 <img className="w-[350px] h-[240px]" src={User!.image} alt="avatar-img" />
+                
+                {/* User Preview Details */}
                 <div className="flex flex-col gap-3 py-6 px-5">
                     <div className="flex justify-between items-start">
                         <div className="flex flex-col justify-between">
@@ -70,7 +71,7 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
                         <button className="p-1 py-3 mt-3 flex justify-center items-center rounded bg-danger text-white hover:bg-[#a5201b] " onClick={(e) => {
                             e.stopPropagation();
                             toggleShowUserPreview({ status: false, id: undefined })
-                        }}><CancelSVG /></button>
+                        }}><CancelSVG size={16} /></button>
                     </div>
                 </div>
             </div>
