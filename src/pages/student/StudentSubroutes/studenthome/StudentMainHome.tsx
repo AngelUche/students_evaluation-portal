@@ -1,11 +1,16 @@
 import login from "../../../../assets/login.jpg";
+import { ViewResultContext } from "../../../../contexts/student";
+import { StudentResult } from "../studentviewresult/StudentResult";
+import { useContext } from "react";
 
 const list = { name: "uche", class: "ss1", userStatus: "Student" };
 
 const StudentMainHome = () => {
+  const { showviewResult } = useContext(ViewResultContext);
   return (
     <>
       <section className="md:ml-72">
+        {showviewResult.resultstatus && <StudentResult />}
         {/* BACKGROUND IMAGE AND BLUR */}
         <div
           className="student-image h-screen fixed left-0 top-0

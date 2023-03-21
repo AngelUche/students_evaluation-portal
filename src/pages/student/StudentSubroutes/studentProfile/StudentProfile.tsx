@@ -1,10 +1,16 @@
 import React from "react";
 import login from "../../../../assets/login.jpg";
 import Studenttable from "./Studenttable";
+import { StudentResult } from "../studentviewresult/StudentResult";
+import { ViewResultContext } from "../../../../contexts/student";
 
 const StudentProfile = () => {
+  const { showviewResult } = React.useContext(ViewResultContext);
+
   return (
     <section className="">
+      {showviewResult.resultstatus && <StudentResult />}
+
       <div>
         {/* BSCKROOUND SETUP  */}
         <div

@@ -1,45 +1,56 @@
-import {
-  useState,
-  useContext,
-  createContext,
-  ReactNode,
-  Children,
-} from "react";
+import { useState, useContext, createContext, ReactNode } from "react";
 
-interface StudentModalContext {
-  ismodalOpen: boolean;
-  handleModal: () => void;
-  CloseModal: () => void;
+// INTERFACE FOR CONTEXT BASED ON THE ID AND STATUS OF THE STUDENT
+interface ViewResultContextinterface {
+  // id: string;
+  showviewResult: { resultstatus: boolean };
+  // OpenViewResult: ({} )=> void;
+  OpenViewResult: (openresult: showStudentResultinterface) => void;
+  CloseViewResult: (closeresult: showStudentResultinterface) => void;
 }
 
-interface StudentModalProps {
+// interface FOR THE state values (useState)
+interface showStudentResultinterface {
+  resultstatus: boolean;
+}
+
+// SETTNG INTERFACEFOR THE CHILDREN AND THE VALUE
+interface ViewResultContextproviderprops {
   children: ReactNode;
 }
 
-const StudentcontextProvider = createContext<StudentModalContext | null>(null);
+// CREATING THE CONTEXT FOR THE MODAL
+export const ViewResultContext = createContext(
+  {} as ViewResultContextinterface
+);
 
-// Context to toggle a modal
-function StudentResultcontext({ children }: StudentModalProps) {
-  const [ismodalOpen, setIsModalOpen] = useState<boolean>(false);
+export function ViewResultContextprovider({
+  children,
+}: ViewResultContextproviderprops) {
+  const [showviewResult, setshowviewResult] =
+    useState<showStudentResultinterface>({ resultstatus: false });
 
-  // toogling a modal
-  function handleModal() {
-    setIsModalOpen(!ismodalOpen);
+  // FUNCTION TO OPEN VIEWRESULT MODAL
+  function OpenViewResult({ resultstatus }: showStudentResultinterface) {
+    setshowviewResult({ resultstatus: true });
   }
-  function CloseModal() {
-    setIsModalOpen(false);
+
+  // FUNCTION TO CLOSE VIEWRESULT MODAL
+  function CloseViewResult({ resultstatus }: showStudentResultinterface) {
+    setshowviewResult({ resultstatus: false });
   }
+
+  // RETURNING THE REACT CHILDREN VLAUES TO BE CONSUMED
   return (
-    <StudentcontextProvider.Provider
-      value={{ ismodalOpen, handleModal, CloseModal }}
+    <ViewResultContext.Provider
+      value={{ showviewResult, OpenViewResult, CloseViewResult }}
     >
       {children}
-    </StudentcontextProvider.Provider>
+    </ViewResultContext.Provider>
   );
 }
-// custom Hook Setup
-function useGlobalContext() {
-  return useContext(StudentcontextProvider);
-}
 
-export { StudentResultcontext, StudentcontextProvider, useGlobalContext };
+// custom Hook Setup
+// export function useGlobalContext() {
+//   return useContext(viewResultContext);
+// }

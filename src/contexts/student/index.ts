@@ -1,1 +1,1 @@
-export { StudentResultcontext, StudentcontextProvider, useGlobalContext } from './studentresultModal'
+export { ViewResultContextprovider, ViewResultContext} from './studentresultModal'
