@@ -1,2 +1,2 @@
-export { StudentResult } from './StudentResult'
-export{StudentResultPortal} from './StudentResultPortal'
+export { StudentResultModal } from './StudentResultModal'
+export{StudentResultPage} from './StudentResultPage'

@@ -3,6 +3,7 @@ import { BiPhoneCall, BiMaleFemale } from "react-icons/bi";
 import { MdError, MdSchool } from "react-icons/md";
 import { AiOutlineMail, AiFillHome, AiOutlineCalendar } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
+import { StudentDataBase } from "../../../../data/student";
 
 const Studenttable = () => {
   return (

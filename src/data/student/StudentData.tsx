@@ -1,30 +1,25 @@
-// fetching academic sessiondata from the server
-export const studdentTerms = [
+// fetch result data from the server using the ID
+export const StudentDataBase = [
   {
-    id: 1,
-    term: "First Term",
+    id: 54,
+    name: "Emmanuel Nnaemekae",
+    firstName: "Emmanuel",
+    lastName: "Nnaemeka",
+    address: "1, Street Road, LGA, State, Country",
+    position: "Student",
+    phoneNumber: "+234816234787",
+    classDesignation: "JS2",
+    gender: "Male",
   },
   {
-    id: 2,
-    term: "Second Term",
-  },
-  {
-    id: 3,
-    term: "Third Term",
-  },
-];
-
-export const Studentsession = [
-  {
-    id: 1,
-    session: "2023/2022",
-  },
-  {
-    id: 2,
-    session: "2022/2021",
-  },
-  {
-    id: 3,
-    session: "2021/2020",
+    id: 56,
+    name: "Sanctus peter",
+    firstName: "Sanctus",
+    lastName: "Peter",
+    address: "1, Street Road, LGA, State, Country",
+    position: "Student",
+    phoneNumber: "+234816234787",
+    classDesignation: "JS3",
+    gender: "Male",
   },
 ];

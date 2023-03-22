@@ -1,1 +1,2 @@
-export {studdentTerms, Studentsession} from './StudentData'
+export { studdentTerms, Studentsession } from './StudentSessionData'
+export {StudentDataBase} from './StudentData'

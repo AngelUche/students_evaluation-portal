@@ -5,9 +5,12 @@ import {
   StudentHome,
   StudentProfile,
   StudentPasswordReset,
-  StudentResult,
-  StudentResultPortal,
+  StudentResultPage,
+  StudentLogOutModal,
 } from "./StudentSubroutes";
+// IMPORTING THE ERROR PAGE
+import ErrorPage from "./ErrorPage";
+
 import { ViewResultContextprovider } from "../../contexts/student";
 
 function StudentPage() {
@@ -20,8 +23,11 @@ function StudentPage() {
           <Route index element={<StudentHome />} />
           <Route path="profile" element={<StudentProfile />} />
           <Route path="password" element={<StudentPasswordReset />} />
-          <Route path="result" element={<StudentResultPortal />} />
+          <Route path="result" element={<StudentResultPage />} />
+          <Route path="/logout" element={<StudentLogOutModal />} />
         </Route>
+
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </ViewResultContextprovider>
   );
