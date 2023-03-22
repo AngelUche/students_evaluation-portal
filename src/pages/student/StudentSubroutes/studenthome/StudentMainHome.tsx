@@ -1,27 +1,24 @@
+import BackGroundComp from "../BackGroundComp";
 import login from "../../../../assets/login.jpg";
+import { ViewResultContext } from "../../../../contexts/student";
+import { useContext } from "react";
+import { StudentLogOutModal } from "../studentLogOut/StudentLogOut";
+
+// importing data from database
+import { StudentDataBase } from "../../../../data/student";
 
 const list = { name: "uche", class: "ss1", userStatus: "Student" };
 
 const StudentMainHome = () => {
+  const { showviewResult } = useContext(ViewResultContext);
   return (
     <>
       <section className="md:ml-72">
-        {/* BACKGROUND IMAGE AND BLUR */}
-        <div
-          className="student-image h-screen fixed left-0 top-0
-         bottom-0 right-0 lg:left-60"
-        >
-          <img
-            src={login}
-            alt="coridor"
-            className="object-cover object-center block w-full h-full"
-          />
-        </div>
-        {/* BACKGROUND BLUR SET UP */}
-        <div
-          className=" student-image left-0  lg:left-1/4 fixed top-0 h-screen 
-          botttom-0 right-0 bg-black opacity-60"
-        ></div>
+        {/*IMAGE  BACKGROUND SET */}
+        <BackGroundComp />
+
+        {/* LOG OUT MODAL */}
+        {showviewResult.resultstatus && <StudentLogOutModal />}
 
         {/* STUDENT'S  MAIN PAGE SET UP */}
         <div className=" w-full h-full">

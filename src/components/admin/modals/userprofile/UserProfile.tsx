@@ -7,9 +7,8 @@ import { UserProfileModalContext } from "../../../../contexts/admin";
 import { classData, AllData, PositionData } from "../../../../data/admin";
 
 function UserProfileModal() {
-
     const { toggleShowUserProfile: toggleModal } = useContext(UserProfileModalContext);
-
+    
     // Determine type of user to view profile
     const [selectedPosition, setSelectedPosition] = useState("");
 
@@ -26,10 +25,13 @@ function UserProfileModal() {
     }
 
     return (
-        <div className="w-[350px] py-8 px-8 bg-white rounded-[10px] overflow-hidden shadow-xl flex flex-col gap-y-6" onClick={(e) => {
-            // Prevent propagation of button click to avoid closing the modal when operating it
-            e.stopPropagation();
-        }}>
+        <div
+            className="w-[350px] py-8 px-8 bg-white rounded-[10px] overflow-hidden shadow-xl flex flex-col gap-y-6"
+            onClick={(e) => {
+                // Prevent propagation of button click to avoid closing the modal when operating it
+                e.stopPropagation();
+            }}
+        >
             {/* User Profile Header */}
             <div className="flex text-gray-700 items-center gap-3">
                 <h2 className="text-lg font-bold text-gray-700">User Profile</h2>
@@ -54,17 +56,13 @@ function UserProfileModal() {
                             Select User Position
                         </option>
 
-                        {
-                            PositionData.map((positionData) => {
-                                return (
-                                    <option key={positionData.id} value={positionData.value}>
-                                        {positionData.value}
-                                    </option>
-                                );
-                            })
-
-                        }
-
+                        {PositionData.map((positionData) => {
+                            return (
+                                <option key={positionData.id} value={positionData.value}>
+                                    {positionData.value}
+                                </option>
+                            );
+                        })}
                     </select>
                 </div>
 
@@ -75,23 +73,20 @@ function UserProfileModal() {
                             aria-label="Select a list of class names to get available students"
                             value={selectedClass}
                             onChange={(event) => {
-                                setSelectedClass(event.target.value)
+                                setSelectedClass(event.target.value);
                                 setSlectedMember("");
                             }}
                         >
                             <option value="" disabled>
                                 Select Member Class
                             </option>
-                            {
-                                classData.map((classData) => {
-                                    return (
-                                        <option key={classData.id} value={classData.classDesignation}>
-                                            {classData.classDesignation}
-                                        </option>
-                                    );
-                                })
-                            }
-
+                            {classData.map((classData) => {
+                                return (
+                                    <option key={classData.id} value={classData.classDesignation}>
+                                        {classData.classDesignation}
+                                    </option>
+                                );
+                            })}
                         </select>
                     </div>
                 )}
@@ -102,38 +97,42 @@ function UserProfileModal() {
                         aria-label="Select a list of members of a class to view profile"
                         value={selectedMember}
                         onChange={(event) => {
-                            setSlectedMember(event.target.value)
-                        }
-                        }
+                            setSlectedMember(event.target.value);
+                        }}
                     >
                         <option value="" disabled>
                             Select Member
                         </option>
-                        {selectedPosition == "Student" && (AllData.map((data) => {
-                            if (data.classDesignation === selectedClass) {
-                                return (
-                                    <option key={data.id} value={data.id}>
-                                        {data.name}
-                                    </option>
-                                );
-                            }
-                        })
-                        )}
-                        {selectedPosition != "Student" && (AllData.map((data) => {
-                            if (data.position === selectedPosition) {
-                                return (
-                                    <option key={data.id} value={data.id}>
-                                        {data.name}
-                                    </option>
-                                );
-                            }
-                        })
-                        )}
-
+                        {selectedPosition == "Student" &&
+                            AllData.map((data) => {
+                                if (data.classDesignation === selectedClass) {
+                                    return (
+                                        <option key={data.id} value={data.id}>
+                                            {data.name}
+                                        </option>
+                                    );
+                                }
+                            })}
+                        {selectedPosition != "Student" &&
+                            AllData.map((data) => {
+                                if (data.position === selectedPosition) {
+                                    return (
+                                        <option key={data.id} value={data.id}>
+                                            {data.name}
+                                        </option>
+                                    );
+                                }
+                            })}
                     </select>
                 </div>
             </div>
-            <button className="w-full rounded uppercase py-3 bg-[blue] hover:bg-[#0202c5] hover:shadow-xl text-white font-mono font-bold" onClick={handleProfileSubmit} disabled={selectedMember == ""}>View full profile</button>
+            <button
+                className="w-full rounded uppercase py-3 bg-[blue] hover:bg-[#0202c5] hover:shadow-xl text-white font-mono font-bold"
+                onClick={handleProfileSubmit}
+                disabled={selectedMember == ""}
+            >
+                View full profile
+            </button>
         </div>
     );
 }

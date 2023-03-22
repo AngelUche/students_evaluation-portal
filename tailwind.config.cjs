@@ -26,6 +26,7 @@ module.exports = {
         editFormFieldBg: "#ffffff",
       },
     },
+   
   },
   plugins: [],
 };

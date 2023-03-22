@@ -1,5 +1,5 @@
 const StudentResultPortal = () => {
-  return <div>RESULT PORTAL</div>;
+  return <div className="ml-[300px]">RESULT PORTAL</div>;
 };
 
 export { StudentResultPortal };

@@ -1,13 +1,23 @@
 import { AiFillHome, AiFillFile, AiOutlineLogout } from "react-icons/ai";
 import { BsFillPersonFill, BsKeyFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ViewResultContext } from "../../../../contexts/student";
 
 const StudentDeskTopsideba = () => {
+  // SETTING UP THE CONTEXT HOOK FOR OPENING THE MODAL
+  const { OpenResultPage, CloseViewResult, OpenViewResult } =
+    useContext(ViewResultContext);
+
   return (
     // SIDE BAR MOBILE VIEW FIXED WITH
     <aside
-      className=" w-72  pt-28 fixed bottom-0 top-0 bg-[#2b3b3c] shadow-lg overflow-y-auto invisible
-  lg:visible"
+      onClick={() => {
+        CloseViewResult({ resultstatus: false });
+      }}
+      className=" w-72  pt-28 fixed bottom-0 top-0 
+      bg-[#2b3b3c] shadow-lg overflow-y-auto invisible
+        lg:visible z-10"
     >
       <div className="flex flex-col gap-y-3">
         <NavLink
@@ -36,17 +46,20 @@ const StudentDeskTopsideba = () => {
         <NavLink
           to="result"
           className={({ isActive }) =>
-            `p-4 pl-5 text-white flex justify-start items-center gap-5 transitiononhover
-            hover:border-l-4 ${
-              isActive ? "bg-studentactive px-5 border-l-4" : null
-            }`
+            `p-4 pl-5 text-white flex justify-start items-center gap-5
+             hover:border-l-4 transitiononhover
+              ${isActive ? "bg-studentactive px-5 border-l-4" : undefined}`
           }
+          onClick={(e) => {
+            e.stopPropagation();
+            OpenResultPage({ isViewResultTrue: true, id: 2 });
+          }}
         >
-          <AiFillFile size={25} className="text-[#b4b8b8]" />
-          <span className="text-xl">View Result</span>
+          <BsFillPersonFill size={25} />
+          <span className="text-xl">Student profile</span>
         </NavLink>
         <NavLink
-          to="result"
+          to="password"
           className={({ isActive }) =>
             `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${
               isActive ? "bg-studentactive px-5 border-l-4" : null
@@ -56,7 +69,20 @@ const StudentDeskTopsideba = () => {
           <BsKeyFill size={25} className="text-[#b4b8b8]" />
           <span className="text-xl">Reset Password</span>
         </NavLink>
-        <NavLink
+
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            OpenViewResult({ resultstatus: true });
+          }}
+          className="p-4 pl-5 text-white flex justify-start items-center gap-5 
+          hover:border-l-4 px-5 border-l-4 mt-40"
+        >
+          <AiOutlineLogout size={25} />
+
+          <span className="text-xl">logout</span>
+        </button>
+        {/* <NavLink
           to="logout"
           className={({ isActive }) =>
             `p-4 pl-5 text-white flex justify-start items-center gap-5 
@@ -67,7 +93,7 @@ const StudentDeskTopsideba = () => {
         >
           <AiOutlineLogout size={25} />
           <span className="text-xl">Log out</span>
-        </NavLink>
+        </NavLink> */}
       </div>
     </aside>
   );

@@ -2,7 +2,9 @@
 import { useContext, useEffect, useState } from "react";
 import { retrieveUserData } from "../../../utils/admin";
 import { UserProfileModalContext } from "../../../contexts/admin";
-import { EditSVG, CancelFillSVG } from "../../../assets/admin";
+import { EditSVG, SaveSVG, CancelFillSVG } from "../../../assets/admin";
+
+import { classData } from "../../../data/admin";
 
 interface UserProfileInterface {
     id: number;
@@ -27,17 +29,28 @@ function UserProfileView() {
     const { showUserProfile, toggleShowUserProfile } = useContext(UserProfileModalContext);
 
     const [editProfileStatus, setEditProfileStatus] = useState<boolean>(false);
+
     const [currentUser, setCurrentUser] = useState({} as UserProfileInterface);
     const [editProfile, SetEditProfile] = useState({} as UserProfileInterface);
 
+    // Selected Gender
+    const [selectedGender, setSelectedGender] = useState("");
+
+    // Selected class if user a student
+    const [selectedClass, setSelectedClass] = useState<string | undefined>("");
 
     useEffect(() => {
         // Fetch user from data Base
         const User = retrieveUserData(showUserProfile.id);
 
         if (User) {
+            // Set the users
             setCurrentUser(User);
             SetEditProfile(User);
+
+            // Set the gender and Class controlled components
+            setSelectedClass(User.classDesignation)
+            setSelectedGender(User.gender)
         }
     }, [])
 
@@ -65,7 +78,7 @@ function UserProfileView() {
         // Submit details to backend.......
 
         // Set the Edit profile to hold latest user changes
-        SetEditProfile(currentUser);
+        SetEditProfile({ ...currentUser, gender: selectedGender, classDesignation: selectedClass });
 
         // Clear Edit menu
         setEditProfileStatus(false);
@@ -111,17 +124,20 @@ function UserProfileView() {
 
                     {/* Form fields */}
                     <div className="py-1 flex flex-col gap-y-2 max-h-[51vh] overflow-y-auto">
+
                         {/* Name Section */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+
                             {/* FirstName */}
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="surname">First name</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" defaultValue={currentUser?.firstName} value={currentUser?.firstName} disabled={!editProfileStatus} onChange={(e) => {
+                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" value={currentUser?.firstName} disabled={!editProfileStatus} onChange={(e) => {
                                     setCurrentUser((currentUser: UserProfileInterface) => {
                                         return { ...currentUser, firstName: e.target.value }
                                     })
                                 }} />
                             </div>
+
                             {/* LastName */}
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="surname">Last name</label>
@@ -131,6 +147,7 @@ function UserProfileView() {
                                     })
                                 }} />
                             </div>
+
                             {/* Othername */}
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="otherName">Other name</label>
@@ -144,6 +161,7 @@ function UserProfileView() {
 
                         {/* Email and phone NUmber section*/}
                         <div className="flex flex-col gap-y-2">
+
                             {/* Email - if found */}
                             {
                                 currentUser?.email && (
@@ -157,6 +175,7 @@ function UserProfileView() {
                                     </div>
                                 )
                             }
+
                             {/* Phone Number */}
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="telephone">Phone number</label>
@@ -180,10 +199,11 @@ function UserProfileView() {
 
                         {/* Position, Gender, Class? */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+
                             {/* Position */}
                             <div className="flex flex-col basis-full">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="position">Position</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" id="position" defaultValue={currentUser?.position} value={currentUser?.position} disabled={!editProfileStatus} onChange={(e) => {
+                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm bg-formFieldBg`} type="text" id="position" value={currentUser?.position} disabled onChange={(e) => {
                                     setCurrentUser((currentUser: UserProfileInterface) => {
                                         return { ...currentUser, position: e.target.value }
                                     })
@@ -193,12 +213,12 @@ function UserProfileView() {
                             {/* Gender */}
                             <div className="flex flex-col justify-end basis-full">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="gender">Gender</label>
-                                <select id="gender" className={`p-[10px] text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} disabled={!editProfileStatus} value={currentUser?.gender} onChange={(e) => {
-                                    setCurrentUser((currentUser: UserProfileInterface) => {
-                                        return { ...currentUser, gender: e.target.value }
-                                    })
+                                <select id="gender" className={`p-[10px] text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} disabled={!editProfileStatus} value={selectedGender} onChange={(e) => {
+                                    setSelectedGender(e.target.value);
                                 }}>
-                                    <option value={currentUser.gender} selected>{currentUser.gender}</option>
+                                    <option value="" disabled>
+                                        Select Gender
+                                    </option>
                                     <option value={"Male"}>Male</option>
                                     <option value={"Female"}>Female</option>
                                 </select>
@@ -208,7 +228,27 @@ function UserProfileView() {
                             {currentUser?.classDesignation && (
                                 <div className="flex flex-col basis-full">
                                     <label className="text-sm font-bold text-gray-700" htmlFor="designation">Designation</label>
-                                    <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" id="designation" defaultValue={currentUser?.classDesignation} value={currentUser?.classDesignation} disabled={!editProfileStatus} />
+                                    <select
+                                        className={`p-[10px] text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `}
+                                        value={selectedClass}
+                                        disabled={!editProfileStatus}
+                                        onChange={(e) => {
+                                            setSelectedClass(e.target.value)
+                                        }}
+                                    >
+                                        <option value="" disabled>
+                                            Select Member Class
+                                        </option>
+                                        {
+                                            classData.map((classData) => {
+                                                return (
+                                                    <option key={classData.id} value={classData.classDesignation}>
+                                                        {classData.classDesignation}
+                                                    </option>
+                                                );
+                                            })
+                                        }
+                                    </select>
                                 </div>
                             )}
                         </div>
@@ -216,6 +256,7 @@ function UserProfileView() {
                 </div>
             </div>
 
+            {/* Button to render based on edit profile status */}
             <div className="mt-5 flex justify-center">
                 {editProfileStatus ?
                     (<button className="w-full max-w-[300px] mx-auto rounded uppercase py-3 bg-[#0e6931] hover:bg-[#0d791f] hover:shadow-xl text-white font-mono font-bold" onClick={submitEditedProfile} >Save User profile</button>)
