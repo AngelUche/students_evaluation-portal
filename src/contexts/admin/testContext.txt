@@ -1,0 +1,34 @@
+// import { createContext, useState } from "react";
+
+
+// interface NameContextInterface {
+//     showModal: {
+//         id: string | undefined
+//         status: boolean
+//     }
+//     toggleModal: ({ status, id }: any) => void
+// }
+
+// // 1. create the context
+// const NameContext = createContext({} as NameContextInterface)
+
+// function NameContextProvider({ children }: any) {
+
+//     const [showModal, setShowModal] = useState({ id: undefined, status: false })
+
+//     function toggleModal({status, id}: any) {
+//         setShowModal({ status, id });
+//     }
+
+//     // onClick = () => toggleModal({status: true, id: 1892});   // modal is on
+
+//     // onClick = () => toggleModal({status: false, id: undefined})
+
+//     return (
+//         <NameContext.Provider value={{showModal, toggleModal}}>
+//             {children}
+//         </NameContext.Provider>
+//     )
+// }
+
+// // const {id, status, toggleModal}

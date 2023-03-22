@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { retrieveUserData } from "../../../utils/admin";
 import { UserProfileModalContext } from "../../../contexts/admin";
-import { EditSVG, SaveSVG, CancelFillSVG } from "../../../assets/admin";
+import { EditSVG, CancelFillSVG } from "../../../assets/admin";
 
 interface UserProfileInterface {
     id: number;
@@ -217,11 +217,11 @@ function UserProfileView() {
             </div>
 
             <div className="mt-5 flex justify-center">
-                {editProfileStatus ? 
-                    (<button className="w-full max-w-[300px] mx-auto rounded uppercase py-3 bg-[#0e6931] hover:bg-[#0d791f] hover:shadow-xl text-white font-mono font-bold" onClick={submitEditedProfile} >Save User profile</button>) 
-                    : 
+                {editProfileStatus ?
+                    (<button className="w-full max-w-[300px] mx-auto rounded uppercase py-3 bg-[#0e6931] hover:bg-[#0d791f] hover:shadow-xl text-white font-mono font-bold" onClick={submitEditedProfile} >Save User profile</button>)
+                    :
                     (<button className="w-full max-w-[300px] mx-auto rounded uppercase py-3 bg-[blue] hover:bg-[#0202c5] hover:shadow-xl text-white font-mono font-bold" onClick={handleViewProfileClick} >View user profile</button>)
-                    }
+                }
 
             </div>
         </div >

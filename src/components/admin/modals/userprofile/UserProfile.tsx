@@ -1,16 +1,14 @@
 // jshint esversion:6
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { PersonvcardSVG } from "../../../../assets/admin";
+import { UserProfileModalContext } from "../../../../contexts/admin";
 
 // Data fetched from server
 import { classData, AllData, PositionData } from "../../../../data/admin";
-import { ShowUserProfileInterface } from "../../../../contexts/admin";
 
-interface UserProfileModalProps {
-    toggleModal: (User: ShowUserProfileInterface) => void
-}
+function UserProfileModal() {
 
-function UserProfileModal({ toggleModal }: UserProfileModalProps) {
+    const { toggleShowUserProfile: toggleModal } = useContext(UserProfileModalContext);
 
     // Determine type of user to view profile
     const [selectedPosition, setSelectedPosition] = useState("");

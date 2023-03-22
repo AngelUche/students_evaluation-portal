@@ -6,6 +6,7 @@ module.exports = {
       backgroundImage: {
         "hero-bg_img": "url('./src/assets/coridor.jpg')",
         login: "url('./src/assets/login.jpg')",
+        avatarDefault: "url('./src/assets/admin/defaultUserProfile.webp')",
       },
       boxShadow: {
         pry: "0 2px 3px -1px rgba(6 40 99 / 0.1), 0 2px 2px -2px rgb(6 40 99 / 0.1)",
@@ -22,7 +23,7 @@ module.exports = {
         studentactive: "#947154",
         studntnotactive: "#AB6715",
         formFieldBg: "#eeeeee",
-        editFormFieldBg: "#ffffff"
+        editFormFieldBg: "#ffffff",
       },
     },
   },

@@ -6,7 +6,7 @@ import { UserProfileView } from "../../../../components/admin";
 
 function UserProfilePage() {
     // Render the Profile Modal prompt or main profile page
-    const { showUserProfile, toggleShowUserProfile } = useContext(UserProfileModalContext);
+    const { showUserProfile } = useContext(UserProfileModalContext);
 
     const { id: UserId, status: EmptyProfileStatus } = showUserProfile;
 
@@ -16,7 +16,7 @@ function UserProfilePage() {
             {/* Render the Profile prompt modal to pick a profile if no profile has been directly selected from dashboard home page */}
             {(EmptyProfileStatus) && (
                 <div className="fixed top-[60px] bottom-0 left-0 md:left-[250px] right-0 overflow-y-auto flex justify-center items-center bg-[#00000044]">
-                    <UserProfileModal toggleModal={toggleShowUserProfile} />
+                    <UserProfileModal />
                 </div>
             )}
             {
