@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { retrieveUserData } from "../../../utils/admin";
 import { UserProfileModalContext } from "../../../contexts/admin";
-import { EditSVG, SaveSVG, CancelFillSVG } from "../../../assets/admin";
+import { EditSVG, CancelFillSVG } from "../../../assets/admin";
 
 import { classData } from "../../../data/admin";
 
@@ -21,8 +21,19 @@ interface UserProfileInterface {
     classDesignation?: string;
 }
 
-interface UserProfileViewProps {
-    id: number | undefined
+const defaultUser: UserProfileInterface = {
+    id: 0,
+    name: "",
+    firstName: "",
+    lastName: "",
+    otherName: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+    position: "",
+    gender: "",
+    image: "",
+    classDesignation: ""
 }
 
 function UserProfileView() {
@@ -30,14 +41,15 @@ function UserProfileView() {
 
     const [editProfileStatus, setEditProfileStatus] = useState<boolean>(false);
 
-    const [currentUser, setCurrentUser] = useState({} as UserProfileInterface);
-    const [editProfile, SetEditProfile] = useState({} as UserProfileInterface);
+    // State to hold current user and edit user profile to make reverting possible.
+    const [currentUser, setCurrentUser] = useState(defaultUser);
+    const [temporaryUser, setTemporaryUser] = useState(defaultUser);
 
     // Selected Gender
     const [selectedGender, setSelectedGender] = useState("");
 
     // Selected class if user a student
-    const [selectedClass, setSelectedClass] = useState<string | undefined>("");
+    const [selectedClass, setSelectedClass] = useState<string>("");
 
     useEffect(() => {
         // Fetch user from data Base
@@ -45,11 +57,11 @@ function UserProfileView() {
 
         if (User) {
             // Set the users
-            setCurrentUser(User);
-            SetEditProfile(User);
+            setCurrentUser(User);       // Display current user profile
+            setTemporaryUser(User);       // Temporary hold user profile while editing to make rollback possible
 
-            // Set the gender and Class controlled components
-            setSelectedClass(User.classDesignation)
+            // Set the gender and Class of select(input type) components
+            if (User.classDesignation) setSelectedClass(User?.classDesignation)
             setSelectedGender(User.gender)
         }
     }, [])
@@ -70,7 +82,7 @@ function UserProfileView() {
     // If User discards changes, reset user details
     function closeEditStatus() {
         setEditProfileStatus(false);
-        setCurrentUser(editProfile);    // Reset user details from previous profile details
+        setCurrentUser(temporaryUser);    // Reset user details from previous profile details
     }
 
     // User saves Changes
@@ -78,7 +90,7 @@ function UserProfileView() {
         // Submit details to backend.......
 
         // Set the Edit profile to hold latest user changes
-        SetEditProfile({ ...currentUser, gender: selectedGender, classDesignation: selectedClass });
+        setTemporaryUser({ ...currentUser, gender: selectedGender, classDesignation: selectedClass });
 
         // Clear Edit menu
         setEditProfileStatus(false);
@@ -131,7 +143,7 @@ function UserProfileView() {
                             {/* FirstName */}
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="surname">First name</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" value={currentUser?.firstName} disabled={!editProfileStatus} onChange={(e) => {
+                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" value={currentUser.firstName} disabled={!editProfileStatus} onChange={(e) => {
                                     setCurrentUser((currentUser: UserProfileInterface) => {
                                         return { ...currentUser, firstName: e.target.value }
                                     })
@@ -141,7 +153,7 @@ function UserProfileView() {
                             {/* LastName */}
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="surname">Last name</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" defaultValue={currentUser?.lastName} value={currentUser?.lastName} disabled={!editProfileStatus} onChange={(e) => {
+                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" value={currentUser.lastName} disabled={!editProfileStatus} onChange={(e) => {
                                     setCurrentUser((currentUser: UserProfileInterface) => {
                                         return { ...currentUser, lastName: e.target.value }
                                     })
@@ -151,7 +163,7 @@ function UserProfileView() {
                             {/* Othername */}
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="otherName">Other name</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} defaultValue={currentUser?.otherName} value={currentUser?.otherName} disabled={!editProfileStatus} onChange={(e) => {
+                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} value={currentUser.otherName} disabled={!editProfileStatus} onChange={(e) => {
                                     setCurrentUser((currentUser: UserProfileInterface) => {
                                         return { ...currentUser, otherName: e.target.value }
                                     })
@@ -167,7 +179,7 @@ function UserProfileView() {
                                 currentUser?.email && (
                                     <div className="flex flex-col">
                                         <label className="text-sm font-bold text-gray-700" htmlFor="email">Email</label>
-                                        <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="email" id="email" defaultValue={currentUser.email} value={currentUser.email} disabled={!editProfileStatus} onChange={(e) => {
+                                        <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="email" id="email" value={currentUser.email} disabled={!editProfileStatus} onChange={(e) => {
                                             setCurrentUser((currentUser: UserProfileInterface) => {
                                                 return { ...currentUser, email: e.target.value }
                                             })
@@ -179,7 +191,7 @@ function UserProfileView() {
                             {/* Phone Number */}
                             <div className="flex flex-col">
                                 <label className="text-sm font-bold text-gray-700" htmlFor="telephone">Phone number</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="tel" id="telephone" defaultValue={currentUser?.phoneNumber} value={currentUser?.phoneNumber} disabled={!editProfileStatus} onChange={(e) => {
+                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="tel" id="telephone" value={currentUser.phoneNumber} disabled={!editProfileStatus} onChange={(e) => {
                                     setCurrentUser((currentUser: UserProfileInterface) => {
                                         return { ...currentUser, phoneNumber: e.target.value }
                                     })
@@ -190,7 +202,7 @@ function UserProfileView() {
                         {/* Address */}
                         <div className="flex flex-col">
                             <label className="text-sm font-bold text-gray-700" htmlFor="address">Address</label>
-                            <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" id="address" defaultValue={currentUser?.address} value={currentUser?.address} disabled={!editProfileStatus} onChange={(e) => {
+                            <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" id="address" value={currentUser.address} disabled={!editProfileStatus} onChange={(e) => {
                                 setCurrentUser((currentUser: UserProfileInterface) => {
                                     return { ...currentUser, address: e.target.value }
                                 })

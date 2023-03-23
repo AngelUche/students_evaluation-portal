@@ -2,7 +2,7 @@
 import { useContext } from "react";
 import { useImageUpload } from "../../../hooks/admin";
 import { useState } from "react";
-import { EditSVG, CancelFillSVG } from "../../../assets/admin";
+import { CancelFillSVG } from "../../../assets/admin";
 import { AddUserModalContext } from "../../../contexts/admin";
 import { UploadImage } from "../uploadimage";
 import { classData } from "../../../data/admin";
@@ -88,7 +88,7 @@ function AddUserView() {
 
                             {/* User POSITION */}
                             <div className="ml-auto text-xs text-gray-700 font-mono self-center">
-                                <p className="text-sm font-mono text-gray-600 uppercase" >{`${currentUser?.position}`}</p>
+                                <p className="text-sm font-mono text-gray-600 uppercase" >{`${currentUser.position}`}</p>
                             </div>
                         </div>
 
@@ -99,7 +99,7 @@ function AddUserView() {
                                 {/* FirstName */}
                                 <div className="flex flex-col">
                                     <label className="text-sm font-bold text-gray-700" htmlFor="surname">First name</label>
-                                    <input className={`p-2 text-gray-700 text-[14px] rounded-sm border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none`} type="text" value={currentUser?.firstName} required onChange={(e) => {
+                                    <input className={`p-2 text-gray-700 text-[14px] rounded-sm border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none`} type="text" value={currentUser.firstName} required onChange={(e) => {
                                         setCurrentUser((currentUser: UserProfileInterface) => {
                                             return { ...currentUser, firstName: e.target.value }
                                         })
