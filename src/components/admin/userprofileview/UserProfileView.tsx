@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { retrieveUserData } from "../../../utils/admin";
 import { UserProfileModalContext } from "../../../contexts/admin";
 import { EditSVG, CancelFillSVG } from "../../../assets/admin";
+import { FormInput } from "./formelements";
+import { UserProfileFormHeader } from "./FormHeader";
 
 import { classData } from "../../../data/admin";
 
@@ -114,25 +116,9 @@ function UserProfileView() {
                     }
                 </div>
 
+                {/* Form Header */}
                 <div className="flex flex-col gap-5">
-                    <div className="py-3 border-b-[1px] border-b-gray-400 flex items-center gap-3">
-                        {/* User Rounded Image */}
-                        <div className="w-[60px] h-[60px] rounded-full overflow-hidden">
-                            <img className="w-full h-full" src={currentUser?.image} alt={`Image of ${currentUser?.name}`} />
-                        </div>
-
-                        {/* User ID */}
-                        <div className="text-gray-600">
-                            <h2 className="text-gray-800">{`${currentUser?.firstName} ${currentUser?.lastName}`}</h2>
-                            <span className="font-bold text-xs">ID: </span>
-                            <span className="text-xs">{currentUser?.id}</span>
-                        </div>
-
-                        {/* User POSITION */}
-                        <div className="ml-auto text-xs text-gray-700 font-mono">
-                            <p className="text-sm font-mono text-gray-600 uppercase" >{`${currentUser?.position}`}</p>
-                        </div>
-                    </div>
+                    <UserProfileFormHeader userId={currentUser.id} userImage={currentUser.image} userFirstName={currentUser.firstName} userLastName={currentUser.lastName} userName={currentUser.name} userPosition={currentUser?.position} />
 
                     {/* Form fields */}
                     <div className="py-1 flex flex-col gap-y-2 max-h-[51vh] overflow-y-auto">
@@ -141,86 +127,67 @@ function UserProfileView() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
 
                             {/* FirstName */}
-                            <div className="flex flex-col">
-                                <label className="text-sm font-bold text-gray-700" htmlFor="surname">First name</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" value={currentUser.firstName} disabled={!editProfileStatus} onChange={(e) => {
-                                    setCurrentUser((currentUser: UserProfileInterface) => {
-                                        return { ...currentUser, firstName: e.target.value }
-                                    })
-                                }} />
-                            </div>
+                            <FormInput id="firstName" type="text" label="First name" editProfileStatus={editProfileStatus} value={currentUser.firstName} onChange={(e) => {
+                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                    return { ...currentUser, firstName: e.target.value }
+                                })
+                            }} />
 
                             {/* LastName */}
-                            <div className="flex flex-col">
-                                <label className="text-sm font-bold text-gray-700" htmlFor="surname">Last name</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" value={currentUser.lastName} disabled={!editProfileStatus} onChange={(e) => {
-                                    setCurrentUser((currentUser: UserProfileInterface) => {
-                                        return { ...currentUser, lastName: e.target.value }
-                                    })
-                                }} />
-                            </div>
+                            <FormInput id="lastName" type="text" label="Last name" editProfileStatus={editProfileStatus} value={currentUser.lastName} onChange={(e) => {
+                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                    return { ...currentUser, lastName: e.target.value }
+                                })
+                            }} />
+
 
                             {/* Othername */}
-                            <div className="flex flex-col">
-                                <label className="text-sm font-bold text-gray-700" htmlFor="otherName">Other name</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} value={currentUser.otherName} disabled={!editProfileStatus} onChange={(e) => {
-                                    setCurrentUser((currentUser: UserProfileInterface) => {
-                                        return { ...currentUser, otherName: e.target.value }
-                                    })
-                                }} />
-                            </div>
-                        </div>
-
-                        {/* Email and phone NUmber section*/}
-                        <div className="flex flex-col gap-y-2">
-
-                            {/* Email - if found */}
-                            {
-                                currentUser?.email && (
-                                    <div className="flex flex-col">
-                                        <label className="text-sm font-bold text-gray-700" htmlFor="email">Email</label>
-                                        <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="email" id="email" value={currentUser.email} disabled={!editProfileStatus} onChange={(e) => {
-                                            setCurrentUser((currentUser: UserProfileInterface) => {
-                                                return { ...currentUser, email: e.target.value }
-                                            })
-                                        }} />
-                                    </div>
-                                )
-                            }
-
-                            {/* Phone Number */}
-                            <div className="flex flex-col">
-                                <label className="text-sm font-bold text-gray-700" htmlFor="telephone">Phone number</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="tel" id="telephone" value={currentUser.phoneNumber} disabled={!editProfileStatus} onChange={(e) => {
-                                    setCurrentUser((currentUser: UserProfileInterface) => {
-                                        return { ...currentUser, phoneNumber: e.target.value }
-                                    })
-                                }} />
-                            </div>
-                        </div>
-
-                        {/* Address */}
-                        <div className="flex flex-col">
-                            <label className="text-sm font-bold text-gray-700" htmlFor="address">Address</label>
-                            <input className={`p-2 text-gray-700 text-[14px] rounded-sm ${editProfileStatus ? "border-[1px] border-gray-300 bg-editFormFieldBg focus:border-blue-500 outline-none" : "bg-formFieldBg"} `} type="text" id="address" value={currentUser.address} disabled={!editProfileStatus} onChange={(e) => {
+                            <FormInput id="otherName" type="text" label="Other name" editProfileStatus={editProfileStatus} value={currentUser.otherName} onChange={(e) => {
                                 setCurrentUser((currentUser: UserProfileInterface) => {
-                                    return { ...currentUser, address: e.target.value }
+                                    return { ...currentUser, otherName: e.target.value }
                                 })
                             }} />
                         </div>
 
+                        {/* Email and phone NUmber section*/}
+                        <div className="flex flex-col gap-y-2">
+                            {/* Email - if found */}
+                            {
+                                currentUser?.email && (
+                                    <FormInput id="email" type="email" label="Email" editProfileStatus={editProfileStatus} value={currentUser.email} onChange={(e) => {
+                                        setCurrentUser((currentUser: UserProfileInterface) => {
+                                            return { ...currentUser, email: e.target.value }
+                                        })
+                                    }} />
+                                )
+                            }
+
+                            {/* Phone Number */}
+                            <FormInput id="telephone" type="tel" label="Phone number" editProfileStatus={editProfileStatus} value={currentUser.phoneNumber} onChange={(e) => {
+                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                    return { ...currentUser, phoneNumber: e.target.value }
+                                })
+                            }} />
+
+                        </div>
+
+                        {/* Address */}
+                        <FormInput id="address" type="text" label="Address" editProfileStatus={editProfileStatus} value={currentUser.address} onChange={(e) => {
+                            setCurrentUser((currentUser: UserProfileInterface) => {
+                                return { ...currentUser, address: e.target.value }
+                            })
+                        }} />
+
+
                         {/* Position, Gender, Class? */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-
                             {/* Position */}
-                            <div className="flex flex-col basis-full">
-                                <label className="text-sm font-bold text-gray-700" htmlFor="position">Position</label>
-                                <input className={`p-2 text-gray-700 text-[14px] rounded-sm bg-formFieldBg`} type="text" id="position" value={currentUser?.position} disabled onChange={(e) => {
-                                    setCurrentUser((currentUser: UserProfileInterface) => {
-                                        return { ...currentUser, position: e.target.value }
-                                    })
-                                }} />
-                            </div>
+                            <FormInput id="firstName" type="text" label="position" editProfileStatus={editProfileStatus} value={currentUser.position} onChange={(e) => {
+                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                    return { ...currentUser, position: e.target.value }
+                                })
+                            }} />
+
 
                             {/* Gender */}
                             <div className="flex flex-col justify-end basis-full">

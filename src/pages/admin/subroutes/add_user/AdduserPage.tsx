@@ -5,7 +5,7 @@ import { AddUserView } from "../../../../components/admin";
 import { AddUserModal } from "../../../../components/admin/modals";
 
 function AddUserPage() {
-    const { AddUserPromptStatus, toggleAddUserPromptStatus } = useContext(AddUserModalContext);
+    const { AddUserPromptStatus} = useContext(AddUserModalContext);
 
     const { status: AddUserPrompt } = AddUserPromptStatus;
 
