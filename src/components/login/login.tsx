@@ -24,7 +24,7 @@ const Login = () => {
         <img src={coridor} alt="coridor" className="home-image" />
       </div>
       <div
-        className="w-full h-scree
+        className="w-full h-screen flex flex-col
         items-center"
       >
         {/* LOGO SET UP */}
