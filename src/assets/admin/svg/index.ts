@@ -9,3 +9,4 @@ export { PersonvcardSVG } from "./personVcard";
 export { EditSVG } from "./editSVG";
 export { SaveSVG } from "./saveSVG";
 export { CancelFillSVG } from "./cancelFillSVG";
+export { BroadcastSVG } from "./BroadcastSVG";
