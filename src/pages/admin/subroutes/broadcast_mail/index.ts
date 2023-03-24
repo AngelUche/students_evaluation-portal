@@ -1,1 +1,1 @@
-export { BroadcastMail } from "./BroadcastMail";
+export { BroadcastMailPage } from "./BroadcastMail";
