@@ -45,14 +45,8 @@ export function ViewResultContextprovider({
     isViewResultTrue: true,
     id: undefined,
   });
-  const [islogoutmoda, setIsLogoutModal] = useState(false);
 
-  // TOGGLE LOGOUT MODAL
-  function ToggleLogout() {
-    setIsLogoutModal(!islogoutmoda);
-  }
   // FUNCTION TO OPEN VIEWRESULT MODAL
-
   function OpenViewResult({ resultstatus }: LogoutModaltinterface) {
     setshowviewResult({ resultstatus: true });
   }

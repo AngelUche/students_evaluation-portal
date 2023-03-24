@@ -4,6 +4,7 @@ import { BsFillPersonFill, BsKeyFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ViewResultContext } from "../../../../contexts/student";
+import login from "../../../../assets/login.jpg";
 
 const StudentMobileSideBar = () => {
   const { OpenResultPage, CloseViewResult, OpenViewResult } =
@@ -15,11 +16,26 @@ const StudentMobileSideBar = () => {
         onClick={() => {
           CloseViewResult({ resultstatus: false });
         }}
-        className=" w-72  pt-28 fixed bottom-0 top-0 bg-[#2b3b3c] 
+        className=" w-72  pt-14 fixed bottom-0 top-0 bg-[#2b3b3c] 
         left-0
-        shadow-lg overflow-y-auto visible lg:invisible z-30"
+        shadow-lg overflow-y-auto visible lg:invisible z-30 "
       >
         <div className="flex flex-col gap-y-3">
+          <div className="flex flex-col items-center">
+            <div className=" w-[70px] h-16 ml-1 overflow-hidden rounded-full">
+              <img
+                src={login}
+                alt="logo"
+                className="w-full h-full overflow-hidden block"
+              />
+            </div>
+            <div>
+              <p className="text-white font-bold mt-2 mb-1 text-2xl">
+                Orji Uche Esere
+              </p>
+              <p className="text-amber-500 font-bold text-lg">Student</p>
+            </div>
+          </div>
           <NavLink
             to=""
             end
@@ -55,8 +71,8 @@ const StudentMobileSideBar = () => {
               OpenResultPage({ isViewResultTrue: true, id: 2 });
             }}
           >
-            <BsFillPersonFill size={25} />
-            <span className="text-xl">Student profile</span>
+            <AiFillFile size={25} />
+            <span className="text-xl">View Result</span>
           </NavLink>
           <NavLink
             to="password"
@@ -77,7 +93,7 @@ const StudentMobileSideBar = () => {
               // CloseViewResult({ resultstatus: false });
             }}
             className="p-4 pl-5 text-white flex justify-start items-center gap-5 
-          hover:border-l-4 px-5 border-l-4 mt-40"
+          hover:border-l-4 px-5 border-l-4 mt-20"
           >
             <AiOutlineLogout size={25} />
 

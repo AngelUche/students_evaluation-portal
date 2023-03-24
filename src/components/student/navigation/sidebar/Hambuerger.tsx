@@ -11,7 +11,7 @@ const Hambuerger = () => {
 
   return (
     <button
-      className="fixed top-4 right-6 z-40 lg:invisible"
+      className="fixed top-9 right-6 z-40 lg:invisible"
       onClick={ToggleHAmbuger}
     >
       {isNavbarOpen ? (

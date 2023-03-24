@@ -25,11 +25,6 @@ function StudentLogOutModal() {
     navigateTo("/login");
   }
 
-  // FUNCTION TO NAVIGATE TO THE HOME PAGE
-  function NavigateHome() {
-    setLogOut({ id: 333, status: true });
-    navigateTo("/student");
-  }
   return (
     <>
       <BackGroundComp />
@@ -53,8 +48,8 @@ function StudentLogOutModal() {
         <button
           className="px-4 py-2 bg-amber-800 rounded-lg mb-3
         capitalize"
-          onClick={() => {
-            NavigateHome();
+          onClick={(e) => {
+            e.stopPropagation();
             CloseViewResult({ resultstatus: false });
           }}
         >
