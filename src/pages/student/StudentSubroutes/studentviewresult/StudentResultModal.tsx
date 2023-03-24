@@ -21,8 +21,13 @@ const StudentResultModal = () => {
 
   // SETTING UP THE STATE VRIABLE FOR SELECTED TERMS
   const [SelectedTerms, setSelectedTerms] = useState(" ");
+  // SETTING THE STATE VARIABLE TO CLOE THE MODAL
+  const [viewResult, setViewResult] = useState(false);
 
   // FUNCTION TO HANDLE THE CLOSE BUTTON
+  function closeViewResultModal() {
+    setViewResult(false);
+  }
 
   return (
     <>
@@ -34,9 +39,10 @@ const StudentResultModal = () => {
         {showviewResult.resultstatus && <StudentLogOutModal />}
 
         <div
-          className="bg-[#2b3b3c] md:w-[430px] h-[500px] w-[500px]
-         my-36 rounded-2xl fixed md:left-[25%] lg:left-[45%]
-         flex flex-col items-center capitalize left-[10%]
+          className="bg-[#2b3b3c] md:w-[430px] h-[450px]
+         my-32 rounded-2xl absolute md:left-[25%] lg:left-[45%]
+         flex flex-col items-center capitalize gap-3
+         left-[10%] right-[10%] sm:left-[20%] sm:right-[16%]
          "
         >
           <h1 className="mt-4 font-bold text-white">View Result</h1>
@@ -50,7 +56,6 @@ const StudentResultModal = () => {
               </label>
             </div>
             <select
-              name="result"
               value={SelectedSession}
               onChange={(event) => {
                 setSelectedSession(event.target.value);
@@ -106,14 +111,14 @@ const StudentResultModal = () => {
               className="mt-6 flex justify-center  items-center 
                 gap-x-8  font-semibold"
             >
-              <li className="list-none">
+              <button className="list-none">
                 <Link
                   className="px-10 py-2  bg-slate-300 rounded-lg"
                   to="/student"
                 >
                   cancel
                 </Link>
-              </li>
+              </button>
               <li>
                 <button
                   onClick={() =>

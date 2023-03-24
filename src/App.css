@@ -138,6 +138,28 @@ Sidebar
 .transitiononhover{
   transition: all 1s linear;
 }
-/* .transitiononhover:hover {
-  transition: all 1s linear;
-} */
+.QuotesNextSlide{
+  transform: (100%);
+}
+.QuotesLasttSlide {
+  transform: (-100%);
+}
+.QuotesActiveSlide {
+  transform: (0%) !important;
+  opacity: 1 !important;
+}
+
+.QuotesHome{
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  height: 100%;
+  position: absolute;
+  width: 90%;
+  transition: all 0.4s linear;
+}
+
+ 

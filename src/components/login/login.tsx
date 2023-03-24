@@ -4,9 +4,6 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useState } from "react";
 
-// interface userDetails {
-//   UserId: string | undefined;
-//   setUserId: () => void;
 // }
 const Login = () => {
   // DEFINENING CHOOKS TO HANDLE THE INPUT
@@ -27,7 +24,7 @@ const Login = () => {
         <img src={coridor} alt="coridor" className="home-image" />
       </div>
       <div
-        className="w-full h-screen flex flex-col pt-12 
+        className="w-full h-scree
         items-center"
       >
         {/* LOGO SET UP */}
@@ -89,13 +86,13 @@ const Login = () => {
               </div>
             </form>
             <div className="flex mr-14 justify-center md:mr-[58px]">
-              <NavLink
-                to="/admin"
+              <button
+                onClick={NavigateToAdminDashbord}
                 className="px-[60px] py-[10px] md:px-[100px] md:ml-9 
                 rounded-[6px] bg-amber-700 text-white capitalize ml-10"
               >
                 login
-              </NavLink>
+              </button>
             </div>
           </div>
         </div>
