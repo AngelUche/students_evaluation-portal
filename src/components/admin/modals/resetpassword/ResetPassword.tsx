@@ -69,7 +69,7 @@ function ResetPasswordModal() {
 
                     {/* Submit buttons */}
                     <div className="mt-[1rem]">
-                        <button type="submit" className="p-1 py-4 w-full mt-3 rounded bg-[#038f4d] text-white hover:bg-[#055c32]" >Submit</button>
+                        <button type="submit" className="p-1 py-4 w-full mt-3 font-bold rounded bg-[#038f4d] text-white hover:bg-[#055c32]" >Submit</button>
                     </div>
                 </form>
 
