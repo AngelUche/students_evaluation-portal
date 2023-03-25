@@ -28,7 +28,7 @@ function ResetPasswordModal() {
                 {/* Form Header */}
                 <h1 className="flex gap-x-2 items-center">
                     <span className="text-2xl font-bold text-sideNavbg">Reset Password</span>
-                    <span className="text-[#038f4d]" ><KeySVG /></span>
+                    <span className="text-[#038f4d]" ><KeySVG size={25} /></span>
                     <span className="text-red-500 hover:shadow-lg hover:text-red-700 ml-auto" onClick={((e: any) => {
                         e.stopPropagation();
                         handleFormClose();
@@ -46,7 +46,7 @@ function ResetPasswordModal() {
                             onClick={((e: any) => setCurrentPassword(e.target.value))}
                         />
                     </div>
-                    
+
                     <div className="flex flex-col gap-y-1">
                         <label className="font-mono text-sm font-bold text-gray-500" htmlFor="newPassword">New password</label>
                         <input

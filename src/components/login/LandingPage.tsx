@@ -25,7 +25,9 @@ function LandingPage() {
             students interact with their teachers and parents has direct
             intereaction with the teachers
           </p>
-          <GetStarted />
+          <div className="font-bold text-white">
+            <GetStarted />
+          </div>
         </div>
       </div>
     </>

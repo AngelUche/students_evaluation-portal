@@ -1,6 +1,6 @@
 // jshint esversion:6
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { AsideNavigation } from "../aside";
 import { SearchBar as SearchBarAdmin } from "../searchbar";
@@ -24,7 +24,7 @@ function Navigation() {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="w-full h-full flex justify-between items-center">
-          <h1 className="text-3xl text-white font-bold">Virtuos</h1>
+          <h1 className="text-3xl text-white font-bold"> <NavLink to="/">Virtuos</NavLink></h1>
           <div className="hidden md:block">
             <SearchBarAdmin />
           </div>
