@@ -23,10 +23,7 @@ const Login = () => {
       <div className="home-image-con">
         <img src={coridor} alt="coridor" className="home-image" />
       </div>
-      <div
-        className="w-full h-screen flex flex-col
-        items-center"
-      >
+      <div className="">
         {/* LOGO SET UP */}
         <div className="overflow-hidden w-48 h-26 mr-16 mt-9">
           <img className="w-full h-full block" src={logo} alt="logo" />
@@ -40,8 +37,8 @@ const Login = () => {
             Welcome Back, Kindly Login Here
           </h1>
 
-          <div className="flex flex-col gap-y-14">
-            <form action="" className="flex flex-col gap-y-5">
+          <div className="flex flex-col gap-y-4">
+            <form action="" className="flex flex-col gap-y-2">
               {/* ID FIELD DATA */}
               <div className="relative">
                 <i>
