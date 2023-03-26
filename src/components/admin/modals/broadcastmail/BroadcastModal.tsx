@@ -17,8 +17,11 @@ function BroadcastModal() {
     function handleCloseBroadcastMail() {
         navigate("/admin")
     }
-    
-    function handleSubmitBroadcastMail() {
+
+    function handleSubmitBroadcastMail(e: any) {
+        // Prevent default refeshing of page
+        e.preventDefault();
+
         // Submit details to backend
         alert("Implementation coming soon! redirecting to home page")
         navigate("/admin")
@@ -58,7 +61,6 @@ function BroadcastModal() {
                                         </option>
                                     );
                                 })
-
                             }
 
                             <option value="all">All Users</option>
@@ -85,7 +87,6 @@ function BroadcastModal() {
                             handleCloseBroadcastMail();
                         }}><CancelSVG size={16} /></button>
                     </div>
-
                 </form>
             </div>
         </>

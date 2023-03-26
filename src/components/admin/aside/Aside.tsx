@@ -46,7 +46,7 @@ function AsideNavigation() {
                     </NavLink>
                     <NavLink to="passwordreset"
                         className={({ isActive }) => `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${isActive ? "bg-sideNavbg px-5 border-l-4" : undefined}`}>
-                        <KeySVG />
+                        <KeySVG size={25}/>
                         <span className="text-xl">Reset Password</span>
                     </NavLink>
                 </div>

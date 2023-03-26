@@ -6,6 +6,7 @@ module.exports = {
       backgroundImage: {
         "hero-bg_img": "url('./src/assets/coridor.jpg')",
         login: "url('./src/assets/login.jpg')",
+        loginBgImg: "url('./src/assets/coridor.jpg')",
         avatarDefault: "url('./src/assets/admin/defaultUserProfile.webp')",
       },
       boxShadow: {
@@ -26,7 +27,6 @@ module.exports = {
         editFormFieldBg: "#ffffff",
       },
     },
-   
   },
   plugins: [],
 };

@@ -141,14 +141,6 @@ Sidebar
 /* .transitiononhover:hover {
   transition: all 1s linear;
 } */
-
-/* input::placeholder {
-  color: #000000;
-  opacity: 1;
-}
-input:placeholder-shown {
-  border: 1px solid #095484;
-} */
 .QuotesNextSlide{
   transform: (100%);
 }
