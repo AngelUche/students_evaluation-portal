@@ -4,29 +4,40 @@ import { ViewResultContext } from "../../../../contexts/student";
 import { studdentTerms, Studentsession } from "../../../../data/student";
 import BackGroundComp from "../BackGroundComp";
 // importing context interface from context interface
-import { ShowViewResltinterface } from "../../../../contexts/student";
+import {
+  ShowViewResltinterface,
+  SelectViewSessioninterface,
+} from "../../../../contexts/student";
+// importing context toggle from context syudent
+import {
+  ViewResultModalContextProvider,
+  ViewResultModalContext,
+} from "../../../../contexts/student";
 import { StudentLogOutModal } from "../studentLogOut/StudentLogOut";
 
 interface CloseviewresultModalprops {
   closeviewReselt: (Close: ShowViewResltinterface) => void;
 }
 
-const StudentResultModal = () => {
+function StudentResultModal() {
   // SETTING UP THE GLOBAL CONTEXT ON THE RESULT MODAL
   const { showviewResult, CloseResultPage, CloseViewResult } =
     useContext(ViewResultContext);
+
+  const { toggleViewResultPage: toggleModal } = useContext(
+    ViewResultModalContext
+  );
 
   // SETTING UP THE STATE VRIABLE FOR SELECTED TERMS
   const [SelectedSession, setSelectedSession] = useState(" ");
 
   // SETTING UP THE STATE VRIABLE FOR SELECTED TERMS
   const [SelectedTerms, setSelectedTerms] = useState(" ");
-  // SETTING THE STATE VARIABLE TO CLOE THE MODAL
-  const [viewResult, setViewResult] = useState(false);
 
   // FUNCTION TO HANDLE THE CLOSE BUTTON
   function closeViewResultModal() {
-    setViewResult(false);
+    const id = parseInt(SelectedTerms);
+    toggleModal({ status: false, id });
   }
 
   return (
@@ -67,6 +78,7 @@ const StudentResultModal = () => {
               <option value="" disabled>
                 Select Session
               </option>
+
               {Studentsession.map((student) => {
                 return (
                   <option value={student.session} key={student.id}>
@@ -98,7 +110,7 @@ const StudentResultModal = () => {
                 </option>
                 {studdentTerms.map((term) => {
                   return (
-                    <option value="date" key={term.id}>
+                    <option value={term.id} key={term.id}>
                       {term.term}
                     </option>
                   );
@@ -137,6 +149,6 @@ const StudentResultModal = () => {
       </div>
     </>
   );
-};
+}
 
 export { StudentResultModal };

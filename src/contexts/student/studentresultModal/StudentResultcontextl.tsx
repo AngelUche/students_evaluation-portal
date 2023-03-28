@@ -22,6 +22,11 @@ export interface ShowViewResltinterface {
   // ID OF EACH STUDENT
   id: number | undefined;
 }
+// interface to select results session
+export interface SelectViewSessioninterface {
+  isSessionselected: boolean;
+  selectedsession: string | undefined;
+}
 
 // SETTNG INTERFACEFOR THE CHILDREN AND THE VALUE
 interface ViewResultContextproviderprops {
