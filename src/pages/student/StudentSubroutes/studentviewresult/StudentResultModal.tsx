@@ -4,15 +4,9 @@ import { ViewResultContext } from "../../../../contexts/student";
 import { studdentTerms, Studentsession } from "../../../../data/student";
 import BackGroundComp from "../BackGroundComp";
 // importing context interface from context interface
-import {
-  ShowViewResltinterface,
-  SelectViewSessioninterface,
-} from "../../../../contexts/student";
+import { ShowViewResltinterface, SelectViewSessioninterface, } from "../../../../contexts/student";
 // importing context toggle from context syudent
-import {
-  ViewResultModalContextProvider,
-  ViewResultModalContext,
-} from "../../../../contexts/student";
+import { ViewResultModalContextProvider, ViewResultModalContext, } from "../../../../contexts/student";
 import { StudentLogOutModal } from "../studentLogOut/StudentLogOut";
 
 interface CloseviewresultModalprops {
@@ -29,10 +23,10 @@ function StudentResultModal() {
   );
 
   // SETTING UP THE STATE VRIABLE FOR SELECTED TERMS
-  const [SelectedSession, setSelectedSession] = useState(" ");
+  const [SelectedSession, setSelectedSession] = useState("");
 
   // SETTING UP THE STATE VRIABLE FOR SELECTED TERMS
-  const [SelectedTerms, setSelectedTerms] = useState(" ");
+  const [SelectedTerms, setSelectedTerms] = useState("");
 
   // FUNCTION TO HANDLE THE CLOSE BUTTON
   function closeViewResultModal() {
@@ -75,7 +69,7 @@ function StudentResultModal() {
               className="border-2 rounded-md outline-none text-sm w-72 h-8  
               mb-6 hover:cursor-pointer pl-6 pb-1"
             >
-              <option value="" disabled>
+              <option value="" selected disabled>
                 Select Session
               </option>
 
@@ -105,7 +99,7 @@ function StudentResultModal() {
                 className="border-2 rounded-md capitalize text-sm w-72 h-8 
                   outline-none mb-14 mt-1 hover:cursor-pointer pl-6 pb-1"
               >
-                <option value="date" disabled>
+                <option value="" selected disabled>
                   select terms
                 </option>
                 {studdentTerms.map((term) => {

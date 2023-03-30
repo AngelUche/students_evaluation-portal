@@ -34,6 +34,7 @@ function ResetPasswordModal() {
                         handleFormClose();
                     })} ><CancelFillSVG size={20} /></span>
                 </h1>
+
                 {/* Form Fields */}
                 <form className="flex flex-col my-5 gap-y-5" onSubmit={handleFormSubmit}>
                     <div className="flex flex-col gap-y-1">
@@ -41,6 +42,7 @@ function ResetPasswordModal() {
                         <input
                             type="password"
                             id="currentPassword"
+                            value={currentPassword}
                             required
                             className={"p-3 w-full outline-none selection:shadow-inner rounded-[4px] border-[1px] border-[#1e462a59] focus-visible:shadow-md"}
                             onClick={((e: any) => setCurrentPassword(e.target.value))}
@@ -52,6 +54,7 @@ function ResetPasswordModal() {
                         <input
                             type="password"
                             id="newPassword"
+                            value={newPassword}
                             required
                             onClick={((e: any) => setNewPassword(e.target.value))}
                             className={"p-3 w-full outline-none selection:shadow-inner rounded-[4px] border-[1px] border-[#1e462a59]  focus-visible:shadow-md"} />
@@ -62,6 +65,7 @@ function ResetPasswordModal() {
                         <input
                             type="password"
                             id="confirmPassword"
+                            value={confirmPassword}
                             required
                             onClick={((e: any) => setConfirmPassword(e.target.value))}
                             className={"p-3 w-full outline-none selection:shadow-inner rounded-[4px] border-[1px] border-[#1e462a59]  focus-visible:shadow-md"} />
