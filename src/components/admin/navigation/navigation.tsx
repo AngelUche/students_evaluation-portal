@@ -51,7 +51,7 @@ function Navigation() {
       )}
 
       {/* Mobile Outlet Viewing Area */}
-      <div className="md:hidden fixed top-[60px] left-0 right-0 bottom-0 overflow-y-auto bg-slate-50">
+      <div className="md:hidden fixed top-[60px] inset-x-0 bottom-0 overflow-y-auto bg-slate-50">
         <Outlet />
       </div>
 

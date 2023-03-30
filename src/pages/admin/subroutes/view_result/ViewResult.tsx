@@ -1,7 +1,7 @@
 // jshint esversion:6
 
-function ViewResult() {
+function ViewResultPage() {
     return <p>View student result area</p>
 }
 
-export { ViewResult };
+export { ViewResultPage };
