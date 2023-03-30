@@ -25,11 +25,19 @@ const Login = () => {
 
     switch (UserIdType) {
       case "st": {
-        navigate("/student")
+        navigate("/student");
         break;
       }
       case "ad": {
-        navigate("/admin")
+        navigate("/admin");
+        break;
+      }
+      case "pa": {
+        navigate("/parent");
+        break;
+      }
+      case "tc": {
+        navigate("/teacher");
         break;
       }
       default:
@@ -39,27 +47,34 @@ const Login = () => {
 
   return (
     // BACKGROUND IMAGE SET UP
-    <div className="w-full h-screen relative bg-loginBgImg bg-cover bg-no-repeat bg-center">
+    <div
+      className="w-full h-screen relative bg-loginBgImg bg-cover
+     bg-no-repeat bg-center"
+    >
       {/* <div className="home-image-con">
         <img src={coridor} alt="coridor" className="home-image" />
       </div> */}
 
-      <div className="absolute inset-0 bg-[#ffffff6e] flex flex-col justify-center items-center">
-
+      <div className="absolute inset-0 bg-[rgba(0,0,0,0.43)] flex flex-col justify-center items-center">
         {/* LOGO SET UP */}
-        <div className="absolute top-[5vh] left-[50%] translate-x-[-50%] overflow-hidden">
+        <div
+          className="absolute top-[7vh] left-[50%] translate-x-[-60%]
+         overflow-hidden"
+        >
           <img className="w-full h-full" src={logo} alt="logo" />
         </div>
 
         {/* MAIN PAGE FOR WELCOME BACK */}
-        <div className="mt-[50px] bg-sideNavbg w-[24rem] h-[24rem] flex flex-col pt-10 px-10 rounded-lg">
+        <div className="mt-[40px] bg-sideNavbg w-[24rem] h-[24rem] flex flex-col pt-10 px-10 rounded-lg">
           <h1 className="font-bold mb-3 self-start text-gray-100">
             Welcome Back, Kindly Login Here
           </h1>
 
           <div className="flex flex-col mt-3 gap-y-14">
-
-            <form className="flex flex-col gap-y-9" onSubmit={NavigateToAdminDashbord}>
+            <form
+              className="flex flex-col gap-y-9"
+              onSubmit={NavigateToAdminDashbord}
+            >
               {/* ID FIELD DATA */}
               <div className="relative h-12">
                 <i>
@@ -99,7 +114,7 @@ const Login = () => {
                     className="border-2 focus:border-amber-700 rounded-sm pl-[40px] w-full h-full mb-6 outline-none"
                     required
                     value={UserPassword}
-                    onChange={((e) => setUserPassword(e.target.value))}
+                    onChange={(e) => setUserPassword(e.target.value)}
                   />
                 </div>
               </div>

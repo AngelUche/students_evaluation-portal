@@ -1,1 +1,1 @@
-export {ViewResultContextprovider,ViewResultContext} from './StudentResultcontextl'
+export { ViewResultContextprovider, ViewResultContext } from './StudentResultcontextl'
