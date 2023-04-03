@@ -1,3 +1,21 @@
+import axios from "axios";
+import { useEffect } from "react";
+
+// STUDENT DATA URL
+const AllStudent = "https://academic-profiler.onrender.com//admin/students";
+
+// FUNCTION TO FECT ALL STUDENTS
+function FetchAllStudents() {
+  const FtechData = async () => {
+    try {
+      const response = await axios(AllStudent);
+      console.log(response);
+    } catch (error) {}
+  };
+
+  useEffect(() => {}, []);
+}
+
 // fetching academic sessiondata from the server
 export const studdentTerms = [
   {

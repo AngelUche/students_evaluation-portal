@@ -164,5 +164,8 @@ Sidebar
   width: 90%;
   transition: all 0.4s linear;
 }
+.tansition{
+  transition: all 0.3s linear;
+}
 
  

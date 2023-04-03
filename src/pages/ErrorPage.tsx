@@ -1,7 +1,7 @@
 import { AiFillHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const ErrorPage = () => {
+const ErrorPage = ({ NavigateToPage }: any) => {
   return (
     <div
       className="bg-black h-screen  text-white flex flex-col
@@ -10,11 +10,11 @@ const ErrorPage = () => {
     >
       <h1>Error 404</h1>
       <p>Back Home</p>
-      <Link to="/student">
+      <Link to="/login">
         <AiFillHome size={50} color="#f9c9e9" />
       </Link>
     </div>
   );
 };
 
-export default ErrorPage;
+export { ErrorPage };

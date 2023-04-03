@@ -1,17 +1,17 @@
 // jshint esversion:6
 import { Route, Routes } from "react-router-dom";
-// import { StudentSideNav } from "../../components";
+import ParentSharedLayer from "./ParentSharedLayer";
+import ParentErrorpage from "./ParentErrorpage";
 import { ParenttHome } from "./Parenthome";
-import { ParentProfile } from "./parenttProfile";
 
 function ParentPage() {
   return (
     <Routes>
-      {/* <Route path="/" element={<StudentSideNav />}> */}
-      <Route index element={<ParenttHome />} />
-      <Route index element={<ParentProfile />} />
-
-      {/* </Route> */}
+      <Route element={<ParentSharedLayer />}>
+        {/* landing page for the parent dashboard */}
+        <Route index element={<ParenttHome />} />
+      </Route>
+      <Route path="*" element={<ParentErrorpage />} />
     </Routes>
   );
 }

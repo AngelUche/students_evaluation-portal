@@ -1,1 +1,1 @@
-export {ParentProfile} from './parenttProfile'
+export {ParentPage} from './ParentPage'
