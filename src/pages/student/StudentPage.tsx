@@ -7,9 +7,9 @@ import {
   StudentPasswordReset,
   StudentResultPage,
   StudentLogOutModal,
+  StudentErrorPage,
 } from "./StudentSubroutes";
 // IMPORTING THE ERROR PAGE
-import ErrorPage from "./ErrorPage";
 
 import { ViewResultContextprovider } from "../../contexts/student";
 
@@ -27,7 +27,7 @@ function StudentPage() {
           <Route path="/logout" element={<StudentLogOutModal />} />
         </Route>
 
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="*" element={<StudentErrorPage />} />
       </Routes>
     </ViewResultContextprovider>
   );

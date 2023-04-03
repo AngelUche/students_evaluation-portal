@@ -1,5 +1,4 @@
 import logo from "../../assets/logo.png";
-// import coridor from "../../assets/coridor.jpg";
 import { BsFillPersonFill } from "react-icons/bs";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useState } from "react";
@@ -7,11 +6,11 @@ import { KeySVG } from "../../assets/admin";
 
 // }
 const Login = () => {
-  // DEFINENING CHOOKS TO HANDLE THE INPUT
-  const [UserId, setUserId] = useState("");
-
-  // DEFINENING CHOOKS TO HANDLE THE PASSWORD
-  const [UserPassword, setUserPassword] = useState("");
+  // DEFINENING HOOKS TO HANDLE THE INPUT
+  const [PersonsLoggedin, setPersonsLoggedin] = useState({
+    UserId: "",
+    UserPassword: "",
+  });
 
   const navigate = useNavigate();
 
@@ -20,12 +19,14 @@ const Login = () => {
   // FUNCTION TO NAVIGATE TO THE VARIOUS USER DASHBOARD
   function NavigateToAdminDashbord(e: any) {
     e.preventDefault();
+    // VARIABLE TO COLLECT THE DETAILS OF THE LOGGED IN USER
+    const NewListEntry: any = { ...PersonsLoggedin };
 
-    const UserIdType = UserId.substring(0, 2).toLowerCase();
-
+    const UserIdType = PersonsLoggedin.UserId.substring(0, 2).toLowerCase();
     switch (UserIdType) {
       case "st": {
         navigate("/student");
+
         break;
       }
       case "ad": {
@@ -36,13 +37,19 @@ const Login = () => {
         navigate("/parent");
         break;
       }
-      case "tc": {
-        navigate("/teacher");
+      case "st": {
+        navigate("/staff");
         break;
       }
       default:
         break;
     }
+  }
+
+  function HandleChange(e: any) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setPersonsLoggedin({ ...PersonsLoggedin, [name]: value });
   }
 
   return (
@@ -89,11 +96,10 @@ const Login = () => {
                   placeholder="ID"
                   className="border-2 focus:border-amber-700 rounded-sm pl-[40px]
                   w-full h-full mb-6 outline-none"
-                  value={UserId}
+                  value={PersonsLoggedin.UserId}
+                  name="UserId"
                   required
-                  onChange={(e) => {
-                    setUserId(e.target.value);
-                  }}
+                  onChange={HandleChange}
                 />
               </div>
 
@@ -113,12 +119,13 @@ const Login = () => {
                     placeholder="Enter your password"
                     className="border-2 focus:border-amber-700 rounded-sm pl-[40px] w-full h-full mb-6 outline-none"
                     required
-                    value={UserPassword}
-                    onChange={(e) => setUserPassword(e.target.value)}
+                    name="UserPassword"
+                    value={PersonsLoggedin.UserPassword}
+                    onChange={HandleChange}
                   />
                 </div>
               </div>
-              
+
               <div className="w-full mt-5 flex justify-center">
                 <button
                   type="submit"
