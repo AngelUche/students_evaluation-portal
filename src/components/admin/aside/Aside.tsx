@@ -5,10 +5,10 @@ import { useContext, Fragment } from "react"
 import { UserPreviewModalContext, UserProfileModalContext } from "../../../contexts/admin"
 
 function AsideNavigation() {
-    const { showUserProfile, toggleShowUserProfile } = useContext(UserProfileModalContext);
-    const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext)
+    const { toggleShowUserProfile } = useContext(UserProfileModalContext);
+    const { toggleShowUserPreview } = useContext(UserPreviewModalContext)
 
-    // Close all modals upon any click in the side navigation bar
+    // Close all modals upon any click on the side navigation bar
     function handleCloseAllModalsClick() {
         toggleShowUserProfile({ status: true, id: undefined });
         toggleShowUserPreview({ status: false, id: undefined });
