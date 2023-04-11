@@ -8,3 +8,4 @@ export { issuesData } from "./issueData";
 
 export type { studentDataType } from "./studentData";
 export type { staffDataType } from "./staffData";
+export type { UserType } from "./AllData";

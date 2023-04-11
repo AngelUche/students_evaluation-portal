@@ -6,21 +6,22 @@ import { EditSVG, CancelFillSVG } from "../../../assets/admin";;
 import { FormHeader, FormInput } from "../../../components/admin/userprofile";
 
 import { classData } from "../../../data/admin";
+import { UserType } from "../../../data/admin";
 
-interface UserProfileInterface {
-    id: number;
-    name: string;
-    firstName: string;
-    lastName: string;
-    otherName: string;
-    address: string;
-    phoneNumber: string;
-    email: string | null;
-    position: string;
-    gender: string;
-    image: string;
-    classDesignation: string | null;   
-}
+// interface UserProfileInterface {
+//     id: number;
+//     name: string;
+//     firstName: string;
+//     lastName: string;
+//     otherName: string;
+//     address: string;
+//     phoneNumber: string;
+//     email: string | null;
+//     position: string;
+//     gender: string;
+//     image: string;
+//     classDesignation: string | null;   
+// }
 
 /*
  id: string;
@@ -37,9 +38,10 @@ interface UserProfileInterface {
     section?: undefined;
 */
 
-const defaultUser: UserProfileInterface = {
-    id: 0,
+const defaultUser: UserType  = {
+    id:"",
     name: "",
+    section: "",
     firstName: "",
     lastName: "",
     otherName: "",
@@ -58,8 +60,8 @@ function UserProfileView() {
     const [editProfileStatus, setEditProfileStatus] = useState<boolean>(false);
 
     // State to hold current user and edit user profile to make reverting possible.
-    const [currentUser, setCurrentUser] = useState(defaultUser);
-    const [temporaryUser, setTemporaryUser] = useState(defaultUser);
+    const [currentUser, setCurrentUser] = useState<UserType>(defaultUser);
+    const [temporaryUser, setTemporaryUser] = useState<UserType>(defaultUser);
 
     // Selected Gender
     const [selectedGender, setSelectedGender] = useState("");
@@ -142,14 +144,14 @@ function UserProfileView() {
 
                             {/* FirstName */}
                             <FormInput id="firstName" type="text" label="First name" editProfileStatus={editProfileStatus} value={currentUser.firstName} onChange={(e) => {
-                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                setCurrentUser((currentUser: UserType) => {
                                     return { ...currentUser, firstName: e.target.value }
                                 })
                             }} />
 
                             {/* LastName */}
                             <FormInput id="lastName" type="text" label="Last name" editProfileStatus={editProfileStatus} value={currentUser.lastName} onChange={(e) => {
-                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                setCurrentUser((currentUser: UserType) => {
                                     return { ...currentUser, lastName: e.target.value }
                                 })
                             }} />
@@ -157,7 +159,7 @@ function UserProfileView() {
 
                             {/* Othername */}
                             <FormInput id="otherName" type="text" label="Other name" editProfileStatus={editProfileStatus} value={currentUser.otherName} onChange={(e) => {
-                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                setCurrentUser((currentUser: UserType) => {
                                     return { ...currentUser, otherName: e.target.value }
                                 })
                             }} />
@@ -169,7 +171,7 @@ function UserProfileView() {
                             {
                                 currentUser?.email && (
                                     <FormInput id="email" type="email" label="Email" editProfileStatus={editProfileStatus} value={currentUser.email} onChange={(e) => {
-                                        setCurrentUser((currentUser: UserProfileInterface) => {
+                                        setCurrentUser((currentUser: UserType) => {
                                             return { ...currentUser, email: e.target.value }
                                         })
                                     }} />
@@ -178,7 +180,7 @@ function UserProfileView() {
 
                             {/* Phone Number */}
                             <FormInput id="telephone" type="tel" label="Phone number" editProfileStatus={editProfileStatus} value={currentUser.phoneNumber} onChange={(e) => {
-                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                setCurrentUser((currentUser: UserType) => {
                                     return { ...currentUser, phoneNumber: e.target.value }
                                 })
                             }} />
@@ -187,7 +189,7 @@ function UserProfileView() {
 
                         {/* Address */}
                         <FormInput id="address" type="text" label="Address" editProfileStatus={editProfileStatus} value={currentUser.address} onChange={(e) => {
-                            setCurrentUser((currentUser: UserProfileInterface) => {
+                            setCurrentUser((currentUser: UserType) => {
                                 return { ...currentUser, address: e.target.value }
                             })
                         }} />
@@ -197,7 +199,7 @@ function UserProfileView() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                             {/* Position */}
                             <FormInput id="firstName" type="text" label="position" editProfileStatus={editProfileStatus} value={currentUser.position} onChange={(e) => {
-                                setCurrentUser((currentUser: UserProfileInterface) => {
+                                setCurrentUser((currentUser: UserType) => {
                                     return { ...currentUser, position: e.target.value }
                                 })
                             }} />

@@ -2,7 +2,23 @@ import AngelImg from "../../assets/admin/Angel.jpg";
 import DefaultImg from "../../assets/admin/avatar.jpg";
 import EmmanuelImg from "../../assets/admin/Emmanuel.jpg";
 
-const AllData = [
+export type UserType = {
+    id: string,
+    name: string,
+    section: string,
+    firstName: string,
+    lastName: string,
+    otherName: string,
+    address: string,
+    phoneNumber: string,
+    email: string | null,
+    position: string,
+    gender: string,
+    image: string,
+    classDesignation: string | null,
+}
+
+const AllData: UserType[] = [
     {
         id: "ST-2353",
         name: "Emmanuel Nnaemeka",
@@ -13,6 +29,8 @@ const AllData = [
         position: "Student",
         phoneNumber: "+234816234787",
         classDesignation: "JS2",
+        section: "student",
+        email: null,
         gender: "Male",
         image: EmmanuelImg
     },
@@ -26,6 +44,8 @@ const AllData = [
         position: "Student",
         phoneNumber: "+234816234787",
         classDesignation: "JS3",
+        section: "student",
+        email: null,
         gender: "Female",
         image: DefaultImg
     },
@@ -39,6 +59,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         position: "Student",
         classDesignation: "SS1",
+        section: "student",
+        email: null,
         gender: "Male",
         image: DefaultImg
     },
@@ -53,6 +75,7 @@ const AllData = [
         phoneNumber: "+234816234787",
         address: "1, Street Road, LGA, State, Country",
         classDesignation: "JS1",
+        email: null,
         gender: "Female",
         image: AngelImg
     },
@@ -66,6 +89,8 @@ const AllData = [
         position: "Student",
         phoneNumber: "+234816234787",
         classDesignation: "JS1",
+        section: "student",
+        email: null,
         gender: "Male",
         image: EmmanuelImg
     },
@@ -79,6 +104,8 @@ const AllData = [
         position: "Student",
         phoneNumber: "+234816234787",
         classDesignation: "SS2",
+        section: "student",
+        email: null,
         gender: "Female",
         image: DefaultImg
     },
@@ -92,6 +119,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         position: "Student",
         classDesignation: "SS3",
+        section: "student",
+        email: null,
         gender: "Male",
         image: DefaultImg
     },
@@ -105,6 +134,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         address: "1, Street Road, LGA, State, Country",
         classDesignation: "JS1",
+        section: "student",
+        email: null,
         gender: "Female",
         image: AngelImg
     },
@@ -118,6 +149,8 @@ const AllData = [
         position: "Student",
         phoneNumber: "+234816234787",
         classDesignation: "JS3",
+        section: "student",
+        email: null,
         gender: "Male",
         image: EmmanuelImg
     },
@@ -131,6 +164,8 @@ const AllData = [
         position: "Student",
         phoneNumber: "+234816234787",
         classDesignation: "SS1",
+        section: "student",
+        email: null,
         gender: "Female",
         image: DefaultImg
     },
@@ -144,6 +179,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         position: "Student",
         classDesignation: "SS2",
+        section: "student",
+        email: null,
         gender: "Male",
         image: DefaultImg
     },
@@ -157,6 +194,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         address: "1, Street Road, LGA, State, Country",
         classDesignation: "JS2",
+        section: "student",
+        email: null,
         gender: "Female",
         image: AngelImg
     },
@@ -170,6 +209,8 @@ const AllData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
+        classDesignation:null,
+        gender: "male",
         position: "Security",
         image: EmmanuelImg
     },
@@ -184,6 +225,8 @@ const AllData = [
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
         position: "Mechanic",
+        classDesignation: null,
+        gender: "female",
         image: DefaultImg
     },
     {
@@ -197,6 +240,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
         position: "Proprietor",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -210,6 +255,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
         position: "Proprietess",
+        classDesignation: null,
+        gender: "female",
         image: AngelImg
     },
     {
@@ -223,6 +270,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
         position: "Teacher",
+        classDesignation: null,
+        gender: "male",
         image: EmmanuelImg
     },
     {
@@ -236,6 +285,8 @@ const AllData = [
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
         position: "Teacher",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -248,7 +299,9 @@ const AllData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
-        position: "Proprietor",
+        position: "Labs",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -262,6 +315,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
         position: "Teacher",
+        classDesignation: null,
+        gender: "male",
         image: AngelImg
     },
     {
@@ -275,6 +330,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
         position: "Teacher",
+        classDesignation: null,
+        gender: "male",
         image: EmmanuelImg
     },
     {
@@ -288,6 +345,8 @@ const AllData = [
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
         position: "Mechanic",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -301,6 +360,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
         position: "Security",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -314,6 +375,8 @@ const AllData = [
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
         position: "Labs",
+        classDesignation: null,
+        gender: "male",
         image: AngelImg
     },
 ]

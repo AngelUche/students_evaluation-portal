@@ -6,7 +6,7 @@ interface UserProfileFormHeaderProps {
     userFirstName: string
     userLastName: string
     userPosition: string
-    userId: number
+    userId: string
 }
 
 function FormHeader({ userImage, userName, userFirstName, userLastName, userPosition, userId }: UserProfileFormHeaderProps) {

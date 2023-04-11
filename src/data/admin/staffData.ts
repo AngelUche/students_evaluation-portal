@@ -3,17 +3,19 @@ import DefaultImg from "../../assets/admin/avatar.jpg";
 import EmmanuelImg from "../../assets/admin/Emmanuel.jpg";
 
 export type staffDataType = {
-    id: string;
-    section: string
+    id: number;
+    section: string,
     name: string;
     firstName: string;
     lastName: string;
     otherName: string;
     address: string;
     phoneNumber: string;
-    email:string
+    email: string | null;
     position: string;
+    gender: string;
     image: string;
+    classDesignation: string | null;
 }
 
 const staffData = [
@@ -28,6 +30,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
         position: "Security",
+        classDesignation: null,
+        gender: "male",
         image: EmmanuelImg
     },
     {
@@ -41,6 +45,8 @@ const staffData = [
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
         position: "Mechanic",
+        classDesignation: null,
+        gender: "female",
         image: DefaultImg
     },
     {
@@ -54,6 +60,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
         position: "Proprietor",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -67,6 +75,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
         position: "Proprietess",
+        classDesignation: null,
+        gender: "female",
         image: AngelImg
     },
     {
@@ -80,6 +90,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
         position: "Teacher",
+        classDesignation: null,
+        gender: "male",
         image: EmmanuelImg
     },
     {
@@ -93,6 +105,8 @@ const staffData = [
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
         position: "Teacher",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -106,6 +120,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
         position: "Proprietor",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -119,6 +135,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
         position: "Teacher",
+        classDesignation: null,
+        gender: "male",
         image: AngelImg
     },
     {
@@ -132,6 +150,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
         position: "Teacher",
+        classDesignation: null,
+        gender: "male",
         image: EmmanuelImg
     },
     {
@@ -145,6 +165,8 @@ const staffData = [
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
         position: "Mechanic",
+        classDesignation: null,
+        gender: "female",
         image: DefaultImg
     },
     {
@@ -158,6 +180,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
         position: "Security",
+        classDesignation: null,
+        gender: "male",
         image: DefaultImg
     },
     {
@@ -171,6 +195,8 @@ const staffData = [
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
         position: "Labs",
+        classDesignation: null,
+        gender: "male",
         image: AngelImg
     },
 ]

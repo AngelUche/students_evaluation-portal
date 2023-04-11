@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { UserPreviewModalContext } from "../../../contexts/admin";
 
 interface ListItemProps {
-  id: number;
+  id: string;
   name: string;
   position?: string;
   classDesignation?: string;
