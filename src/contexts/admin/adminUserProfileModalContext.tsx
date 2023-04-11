@@ -3,14 +3,14 @@ import { createContext, useState, ReactNode } from "react";
 
 export interface ShowUserProfileInterface {
   status: boolean;
-  id: number | undefined;
+  id: string | undefined;
 }
 
 // Create interface for context
 interface UserProfileModalContextProps {
   showUserProfile: {
     status: boolean;
-    id: number | undefined;
+    id: string | undefined;
   };
   toggleShowUserProfile: (UserProfile: ShowUserProfileInterface) => void;
 }

@@ -26,6 +26,9 @@ module.exports = {
         formFieldBg: "#eeeeee",
         editFormFieldBg: "#ffffff",
       },
+      screens: {
+        "xs": "476px",
+      },
     },
   },
   plugins: [],

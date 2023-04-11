@@ -34,7 +34,7 @@ function Navigation() {
             </div>
 
             {/* Aside Navigation */}
-            <div className={`fixed w-[250px] inset-y-0 md:top-[60px] md:left-0 ${navOpen ? "left-0" : "-left-full"} `}>
+            <div className={`fixed w-[250px] inset-y-0 md:top-[60px] md:left-0 transition-all ease-in delay-[100ms] ${navOpen ? "left-0" : "-left-full"} `}>
                 <AsideNavigation />
             </div>
         </>

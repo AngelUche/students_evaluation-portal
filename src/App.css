@@ -168,4 +168,53 @@ Sidebar
   transition: all 0.3s linear;
 }
 
- 
+
+/* Hide all Scroll bars */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  display: none;
+  background: #ffffff;
+}
+
+/* Place holder text styling */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(110, 109, 109) !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgb(110, 109, 109) !important;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(110, 109, 109) !important;
+  opacity: 1; /* Firefox */
+}
+

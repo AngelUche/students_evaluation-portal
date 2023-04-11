@@ -1,6 +1,4 @@
-export { Navigation } from "./navigation";
 export { AsideNavigation } from "./aside";
 export { SearchBar } from "./searchbar";
 export { StaffListView, StudentListView } from "./listview";
-export { UserProfileView } from "./userprofileview";
-export { AddUserView } from "./adduserview";
+export { UploadImage } from "./uploadimage";

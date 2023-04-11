@@ -20,7 +20,7 @@ function UserProfileModal() {
 
     // View profile
     function handleProfileSubmit() {
-        const id = parseInt(selectedMember);
+        const id = selectedMember;
         toggleModal({ status: false, id });
     }
 

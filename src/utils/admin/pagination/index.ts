@@ -1,0 +1,1 @@
+export { paginationData } from "./paginationData";

@@ -7,7 +7,7 @@ import { retrieveUserData } from "../../../../utils/admin";
 
 // Interface for the props of UserPreviewModal
 interface UserProfileModalProps {
-    id: number | undefined;
+    id: string | undefined;
 }
 
 /**
@@ -38,10 +38,10 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
         <div className="w-[350px] bg-white rounded-[10px] overflow-hidden shadow-xl" onClick={(e) => e.stopPropagation()}>
             {/* Preview wrapped */}
             <div className="flex flex-col">
-                
+
                 {/* Preview Hero image */}
                 <img className="w-[350px] h-[240px]" src={User!.image} alt="avatar-img" />
-                
+
                 {/* User Preview Details */}
                 <div className="flex flex-col gap-3 py-6 px-5">
                     <div className="flex justify-between items-start">

@@ -1,6 +1,6 @@
 // jshint esversion:6
 import { Route, Routes } from "react-router-dom";
-import { Navigation } from "../../components/admin";
+import { AdminLayout } from "../../layouts/admin";
 import { Home, UserProfilePage, ViewResultPage, BroadcastMailPage, PasswordReset, AddUserPage } from "./subroutes";
 import { UserPreviewModalContextProvider, UserProfileModalContextProvider, AddUSerModalContextProvider } from "../../contexts/admin";
 
@@ -15,7 +15,7 @@ function AdminPage() {
                     <Routes>
                         {/* Layout Route - doesn't add any segment to the url */}
                         {/* Rendered with child components */}
-                        <Route element={<Navigation />}>
+                        <Route element={<AdminLayout />}>
                             {/* Default sub-route */}
                             <Route index element={<Home />} />
                             {/* Other Sub-routes */}

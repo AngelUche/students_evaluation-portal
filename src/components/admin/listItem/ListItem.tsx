@@ -18,14 +18,12 @@ function ListItem({
   classDesignation,
   img,
 }: ListItemProps) {
-  const { showUserPreview, toggleShowUserPreview } = useContext(
-    UserPreviewModalContext
-  );
+  const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext);
 
   return (
     <div
       onClick={() => {
-        toggleShowUserPreview({ status: true, id });
+        toggleShowUserPreview({ status: true, id: "LA-1046" });
       }}
     >
       <div className="px-3 cursor-pointer hover:border hover:border-violet-500">

@@ -10,3 +10,4 @@ export { EditSVG } from "./editSVG";
 export { SaveSVG } from "./saveSVG";
 export { CancelFillSVG } from "./cancelFillSVG";
 export { BroadcastSVG } from "./BroadcastSVG";
+export { InfoFillSVG } from "./infoFillSVG";

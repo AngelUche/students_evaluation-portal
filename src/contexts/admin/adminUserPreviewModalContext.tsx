@@ -3,11 +3,11 @@ import { useState, createContext, ReactNode } from "react";
 
 interface ShowUserPreviewInterface {
     status: boolean
-    id: number | undefined
+    id: string | undefined
 }
 
 interface userPreviewModalContextProps {
-    showUserPreview: { status: boolean, id: number | undefined }
+    showUserPreview: { status: boolean, id: string | undefined }
     toggleShowUserPreview: (User: ShowUserPreviewInterface) => void
 }
 
