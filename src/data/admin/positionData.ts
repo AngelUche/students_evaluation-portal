@@ -2,27 +2,31 @@
 
 export const PositionData = [
     {
-        id: 12,
+        id: "TE-12456",
         value: "Teacher"
     },
     {
-        id: 23,
+        id: "ST-23133",
         value: "Student",
     },
     {
-        id: 25,
+        id: "SE-22155",
         value: "Security"
     },
     {
-        id: 98,
+        id: "ME-95958",
         value: "Mechanic"
     },
     {
-        id: 75,
+        id: "HD-73185",
         value: "Proprietor"
     },
     {
-        id: 5667,
+        id: "HD-56678",
         value: "Proprietress"
     },
+    {
+        id: "LA-62989",
+        value: "Labs"
+    }
 ]

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { UserPreviewModalContext, UserProfileModalContext } from "../../../../contexts/admin";
 import { CancelSVG } from "../../../../assets/admin";
 import { retrieveUserData } from "../../../../utils/admin";
+import { getUserPosition,getUserClass } from "../../../../utils/admin";
+
 
 // Interface for the props of UserPreviewModal
 interface UserProfileModalProps {
@@ -46,12 +48,12 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
                 <div className="flex flex-col gap-3 py-6 px-5">
                     <div className="flex justify-between items-start">
                         <div className="flex flex-col justify-between">
-                            <h3 className="text-gray-700">{User!.position}</h3>
+                            <h3 className="text-gray-700">{getUserPosition(User!.position)?.value}</h3>
                             <span className="text-[12px] text-gray-500">ID: {User!.id}</span>
                         </div>
                         <div className="h-full flex flex-col gap-1 justify-between items-end">
                             <p className="text-[10px] text-gray-500 font-mono">Last login: 07 Aug 2023, 14:04PM</p>
-                            {User!.classDesignation && <p className="text-[12px] text-gray-800 font-mono">Class: {User!.classDesignation}</p>}
+                            {User!.classDesignation && <p className="text-[12px] text-gray-800 font-mono">Class: {getUserClass(User!.classDesignation)?.classDesignation}</p>}
                             <a href={`mailto:${User!.email}`} className="text-[12px] text-blue-700 font-mono">{User!.email}</a>
                         </div>
                     </div>

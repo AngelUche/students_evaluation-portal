@@ -3,7 +3,7 @@ import DefaultImg from "../../assets/admin/avatar.jpg";
 import EmmanuelImg from "../../assets/admin/Emmanuel.jpg";
 
 export type staffDataType = {
-    id: number;
+    id: string;
     section: string,
     name: string;
     firstName: string;
@@ -15,10 +15,10 @@ export type staffDataType = {
     position: string;
     gender: string;
     image: string;
-    classDesignation: string | null;
+    classDesignation: null;
 }
 
-const staffData = [
+const staffData: staffDataType[] = [
     {
         id: "SE-2990",
         section: "staff",
@@ -29,7 +29,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
-        position: "Security",
+        position: "SE-22155",
         classDesignation: null,
         gender: "male",
         image: EmmanuelImg
@@ -44,7 +44,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
-        position: "Mechanic",
+        position: "ME-95958",
         classDesignation: null,
         gender: "female",
         image: DefaultImg
@@ -59,7 +59,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
-        position: "Proprietor",
+        position: "HD-73185",
         classDesignation: null,
         gender: "male",
         image: DefaultImg
@@ -74,7 +74,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
-        position: "Proprietess",
+        position: "HD-56678",
         classDesignation: null,
         gender: "female",
         image: AngelImg
@@ -89,7 +89,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
-        position: "Teacher",
+        position: "TE-12456",
         classDesignation: null,
         gender: "male",
         image: EmmanuelImg
@@ -104,13 +104,13 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
-        position: "Teacher",
+        position: "TE-12456",
         classDesignation: null,
         gender: "male",
         image: DefaultImg
     },
     {
-        id: "TE-0990",
+        id: "LA-0990",
         section: "staff",
         name: "Ogwaluonye Onyedika",
         firstName: "Onyedika",
@@ -119,7 +119,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
-        position: "Proprietor",
+        position: "LA-62989",
         classDesignation: null,
         gender: "male",
         image: DefaultImg
@@ -134,7 +134,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
-        position: "Teacher",
+        position: "TE-12456",
         classDesignation: null,
         gender: "male",
         image: AngelImg
@@ -149,7 +149,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "emmanuelMightguy@gmail.com",
-        position: "Teacher",
+        position: "TE-12456",
         classDesignation: null,
         gender: "male",
         image: EmmanuelImg
@@ -164,7 +164,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         email: "Lolade@hotmail.com",
         phoneNumber: "+234816234787",
-        position: "Mechanic",
+        position: "ME-95958",
         classDesignation: null,
         gender: "female",
         image: DefaultImg
@@ -179,7 +179,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "sanctuspeter@gmail.com",
-        position: "Security",
+        position: "SE-22155",
         classDesignation: null,
         gender: "male",
         image: DefaultImg
@@ -194,7 +194,7 @@ const staffData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: "AngelUche@yahoo.com",
-        position: "Labs",
+        position: "LA-62989",
         classDesignation: null,
         gender: "male",
         image: AngelImg

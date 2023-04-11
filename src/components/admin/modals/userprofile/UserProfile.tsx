@@ -2,6 +2,8 @@
 import { useState, useContext } from "react";
 import { PersonvcardSVG } from "../../../../assets/admin";
 import { UserProfileModalContext } from "../../../../contexts/admin";
+import { getUserPosition, getUserClass } from "../../../../utils/admin";
+
 
 // Data fetched from server
 import { classData, AllData, PositionData } from "../../../../data/admin";
@@ -58,15 +60,15 @@ function UserProfileModal() {
 
                         {PositionData.map((positionData) => {
                             return (
-                                <option key={positionData.id} value={positionData.value}>
-                                    {positionData.value}
+                                <option key={positionData.id} value={positionData.id}>
+                                    {getUserPosition(positionData.id)?.value}
                                 </option>
                             );
                         })}
                     </select>
                 </div>
 
-                {selectedPosition == "Student" && (
+                {selectedPosition == "ST-23133" && (
                     <div>
                         <select
                             className="w-full p-3 rounded outline-none text-gray-700 focus:border-2 focus:border-[#0bdf8d]"
@@ -82,8 +84,8 @@ function UserProfileModal() {
                             </option>
                             {classData.map((classData) => {
                                 return (
-                                    <option key={classData.id} value={classData.classDesignation}>
-                                        {classData.classDesignation}
+                                    <option key={classData.id} value={classData.id}>
+                                        {getUserClass(classData.id)?.classDesignation}
                                     </option>
                                 );
                             })}
@@ -103,7 +105,7 @@ function UserProfileModal() {
                         <option value="" disabled>
                             Select Member
                         </option>
-                        {selectedPosition == "Student" &&
+                        {selectedPosition == "ST-23133" &&
                             AllData.map((data) => {
                                 if (data.classDesignation === selectedClass) {
                                     return (
@@ -113,7 +115,7 @@ function UserProfileModal() {
                                     );
                                 }
                             })}
-                        {selectedPosition != "Student" &&
+                        {selectedPosition != "ST-23133" &&
                             AllData.map((data) => {
                                 if (data.position === selectedPosition) {
                                     return (

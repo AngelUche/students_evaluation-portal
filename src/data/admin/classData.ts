@@ -1,28 +1,26 @@
-const classData = [
+export const classData = [
     {
-        id: 643,
+        id: "ST-6433",
         classDesignation: "JS1"
     },
     {
-        id: 764,
+        id: "ST-7674",
         classDesignation: "JS2"
     },
     {
-        id: 469,
+        id: "ST-4639",
         classDesignation: "JS3"
     },
     {
-        id: 345,
+        id: "ST-3451",
         classDesignation: "SS1"
     },
     {
-        id: 941,
+        id: "ST-9417",
         classDesignation: "SS2"
     },
     {
-        id: 8646,
+        id: "ST-8646",
         classDesignation: "SS3"
     },
 ]
-
-export { classData };

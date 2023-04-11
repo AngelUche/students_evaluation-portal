@@ -4,6 +4,7 @@ import { studentDataType } from "../../../../data/admin";
 import { InfoFillSVG } from "../../../../assets/admin/svg";
 import { UserPreviewModalContext } from "../../../../contexts/admin";
 import { useContext } from "react";
+import { getUserClass } from "../../../../utils/admin";
 
 interface StudTableViewProps {
     Users: studentDataType[]
@@ -23,12 +24,12 @@ function StudentTableView({ Users, SN }: StudTableViewProps) {
             <Table className="max-w-[800px] w-full border-spacing-1 table-fixed">
                 <thead>
                     <tr className="[&>*]:p-2">
-                        <th className="text-sm font-medium w-[30px] text-left">#</th>
+                        <th className="text-sm font-medium w-[40px] text-left">#</th>
                         <th className="text-sm font-medium text-left w-[100px]"><span>Firstname</span></th>
                         <th className="hidden sm:table-cell text-sm font-medium text-left w-[100px]">Lastname</th>
                         <th className="text-sm font-medium text-left w-[80px]">ID</th>
-                        <th className="hidden xs:table-cell font-medium text-left w-[80px]">Class</th>
-                        <th className="hidden lg:table-cell text-sm font-medium text-left w-[80px]">Age</th>
+                        <th className="hidden xs:table-cell font-medium text-center w-[80px]">Class</th>
+                        <th className="hidden lg:table-cell text-sm font-medium text-center w-[80px]">Age</th>
                         <th className="hidden lg:table-cell text-sm font-medium text-left w-[80px]">Gender</th>
                     </tr>
                 </thead>
@@ -41,9 +42,9 @@ function StudentTableView({ Users, SN }: StudTableViewProps) {
                                     <td className="w-full h-full truncate"><span>{user.firstName}</span></td>
                                     <td className="hidden h-full sm:table-cell truncate"><span>{user.lastName}</span></td>
                                     <td className="inline-block w-full truncate"><span>{user.id}</span></td>
-                                    <td className="hidden xs:table-cell w-full truncate"><span>{user.classDesignation}</span></td>
-                                    <td className="hidden lg:table-cell w-full truncate"><span>23</span></td>
-                                    <td className="hidden lg:table-cell w-full truncate"><span>{user.gender}</span></td>
+                                    <td className="hidden xs:table-cell w-full text-center truncate"><span>{getUserClass(user.classDesignation)?.classDesignation}</span></td>
+                                    <td className="hidden lg:table-cell w-full text-center truncate"><span>23</span></td>
+                                    <td className="hidden lg:table-cell w-full text-left truncate"><span>{user.gender}</span></td>
                                     <td className="text-gray-300"><InfoFillSVG size={16} /></td>
                                 </tr>
                             );

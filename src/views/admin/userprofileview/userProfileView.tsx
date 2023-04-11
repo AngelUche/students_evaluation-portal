@@ -4,39 +4,10 @@ import { retrieveUserData } from "../../../utils/admin";
 import { UserProfileModalContext } from "../../../contexts/admin";
 import { EditSVG, CancelFillSVG } from "../../../assets/admin";;
 import { FormHeader, FormInput } from "../../../components/admin/userprofile";
+import { getUserPosition, getUserClass } from "../../../utils/admin";
 
 import { classData } from "../../../data/admin";
 import { UserType } from "../../../data/admin";
-
-// interface UserProfileInterface {
-//     id: number;
-//     name: string;
-//     firstName: string;
-//     lastName: string;
-//     otherName: string;
-//     address: string;
-//     phoneNumber: string;
-//     email: string | null;
-//     position: string;
-//     gender: string;
-//     image: string;
-//     classDesignation: string | null;   
-// }
-
-/*
- id: string;
-    name: string;
-    firstName: string;
-    lastName: string;
-    otherName: string;
-    address: string;
-    position: string;
-    phoneNumber: string;
-    classDesignation: string;
-    gender: string;
-    image: string;
-    section?: undefined;
-*/
 
 const defaultUser: UserType  = {
     id:"",
@@ -198,7 +169,7 @@ function UserProfileView() {
                         {/* Position, Gender, Class? */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                             {/* Position */}
-                            <FormInput id="firstName" type="text" label="position" editProfileStatus={editProfileStatus} value={currentUser.position} onChange={(e) => {
+                            <FormInput id="firstName" type="text" label="Position" editProfileStatus={editProfileStatus} value={getUserPosition(currentUser.position)?.value} onChange={(e) => {
                                 setCurrentUser((currentUser: UserType) => {
                                     return { ...currentUser, position: e.target.value }
                                 })

@@ -4,7 +4,7 @@ import EmmanuelImg from "../../assets/admin/Emmanuel.jpg";
 
 
 export type studentDataType = {
-    id: number;
+    id: string;
     name: string;
     section: string;
     firstName: string;
@@ -16,11 +16,11 @@ export type studentDataType = {
     position: string;
     gender: string;
     image: string;
-    classDesignation: string | null;
+    classDesignation: string;
 }
 
 
-const studentData = [
+const studentData: studentDataType[] = [
     {
         id: "ST-2353",
         name: "Emmanuel Nnaemeka",
@@ -29,10 +29,10 @@ const studentData = [
         lastName: "Nnaemeka",
         otherName: "Mightguy",
         address: "1, Street Road, LGA, State, Country",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
         email: null,
-        classDesignation: "JS2",
+        classDesignation: "ST-7674",
         gender: "Male",
         image: EmmanuelImg
     },
@@ -44,9 +44,9 @@ const studentData = [
         lastName: "ComputeWell",
         otherName: "Akinloye",
         address: "1, Street Road, LGA, State, Country",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
-        classDesignation: "JS3",
+        classDesignation: "ST-4639",
         email: null,
         gender: "Female",
         image: DefaultImg
@@ -60,8 +60,8 @@ const studentData = [
         otherName: "Max",
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
-        position: "Student",
-        classDesignation: "SS1",
+        position: "ST-23133",
+        classDesignation: "ST-3451",
         email: null,
         gender: "Male",
         image: DefaultImg
@@ -73,11 +73,11 @@ const studentData = [
         firstName: "Angel",
         lastName: "Uche",
         otherName: "Lucy",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
         address: "1, Street Road, LGA, State, Country",
         email: null,
-        classDesignation: "JS1",
+        classDesignation: "ST-6433",
         gender: "Female",
         image: AngelImg
     },
@@ -89,10 +89,10 @@ const studentData = [
         lastName: "Daniel",
         otherName: "Obiora",
         address: "1, Street Road, LGA, State, Country",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
         email: null,
-        classDesignation: "JS1",
+        classDesignation: "ST-6433",
         gender: "Male",
         image: EmmanuelImg
     },
@@ -104,10 +104,10 @@ const studentData = [
         lastName: "Ani",
         otherName: "John",
         address: "1, Street Road, LGA, State, Country",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
         email: null,
-        classDesignation: "SS2",
+        classDesignation: "ST-9417",
         gender: "Female",
         image: DefaultImg
     },
@@ -120,9 +120,9 @@ const studentData = [
         otherName: "Max",
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
-        position: "Student",
+        position: "ST-23133",
         email: null,
-        classDesignation: "SS3",
+        classDesignation: "ST-8646",
         gender: "Male",
         image: DefaultImg
     },
@@ -133,10 +133,10 @@ const studentData = [
         firstName: "Chiemerie",
         lastName: "Okafor",
         otherName: "Daniel",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
         address: "1, Street Road, LGA, State, Country",
-        classDesignation: "JS1",
+        classDesignation: "ST-6433",
         email: null,
         gender: "Female",
         image: AngelImg
@@ -149,10 +149,10 @@ const studentData = [
         lastName: "Chibuoke",
         otherName: "Tochukwu",
         address: "1, Street Road, LGA, State, Country",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
         email: null,
-        classDesignation: "JS3",
+        classDesignation: "ST-4639",
         gender: "Male",
         image: EmmanuelImg
     },
@@ -164,10 +164,10 @@ const studentData = [
         lastName: "Ochike",
         otherName: "John",
         address: "1, Street Road, LGA, State, Country",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
         email: null,
-        classDesignation: "SS1",
+        classDesignation: "ST-3451",
         gender: "Female",
         image: DefaultImg
     },
@@ -181,8 +181,8 @@ const studentData = [
         address: "1, Street Road, LGA, State, Country",
         phoneNumber: "+234816234787",
         email: null,
-        position: "Student",
-        classDesignation: "SS2",
+        position: "ST-23133",
+        classDesignation: "ST-9417",
         gender: "Male",
         image: DefaultImg
     },
@@ -193,11 +193,11 @@ const studentData = [
         firstName: "Paul",
         lastName: "Ikechukwu",
         otherName: "Emelie",
-        position: "Student",
+        position: "ST-23133",
         phoneNumber: "+234816234787",
         address: "1, Street Road, LGA, State, Country",
         email: null,
-        classDesignation: "JS2",
+        classDesignation: "ST-7674",
         gender: "Female",
         image: AngelImg
     },
