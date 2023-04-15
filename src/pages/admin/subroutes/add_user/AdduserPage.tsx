@@ -1,13 +1,12 @@
 // jshint esversion:6
-import { useContext } from "react";
-import { AddUserModalContext } from "../../../../contexts/admin";
 import { AddUserView } from "../../../../views/admin";
 import { AddUserModal } from "../../../../components/admin/modals";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../store/admin";
 
 function AddUserPage() {
-    const { AddUserPromptStatus} = useContext(AddUserModalContext);
 
-    const { status: AddUserPrompt } = AddUserPromptStatus;
+    const { status: AddUserPrompt } = useSelector((store: RootState) => store.addUser);
 
     return (
         <>

@@ -1,11 +1,11 @@
 // jshint esversion:6
-import { useContext } from "react";
-import { useImageUpload } from "../../../hooks/admin";
 import { useState } from "react";
 import { CancelFillSVG } from "../../../assets/admin";
-import { AddUserModalContext } from "../../../contexts/admin";
 import { UploadImage } from "../../../components/admin";
 import { classData } from "../../../data/admin";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleAddUserPromptStatus } from "../../../features/admin/adduserSlice";
+import { AppDispatch, RootState } from "../../../store/admin";
 
 interface UserProfileInterface {
     id: number;
@@ -23,14 +23,16 @@ interface UserProfileInterface {
 }
 
 function AddUserView() {
-    const { AddUserPromptStatus, toggleAddUserPromptStatus } =
-        useContext(AddUserModalContext);
+
+    const dispatch: AppDispatch = useDispatch();
+
+    const { status, type: UserPositionType } = useSelector((store: RootState) => store.addUser);
 
     const [imageUpload, setImageUpload] = useState<File>();
 
     const [currentUser, setCurrentUser] = useState({
         id: 4592781,
-        position: AddUserPromptStatus.type,
+        position: UserPositionType
     } as UserProfileInterface);
 
     // Selected class if user a student
@@ -40,7 +42,8 @@ function AddUserView() {
     const [selectedGender, setSelectedGender] = useState("");
 
     function handleOpenAddUserModal() {
-        toggleAddUserPromptStatus({ status: true, type: undefined });
+        // toggleAddUserPromptStatus({ status: true, type: undefined });
+        dispatch(toggleAddUserPromptStatus({ status: true, type: undefined }))
     }
 
     function handleFileUpload(event: any) {

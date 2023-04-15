@@ -2,9 +2,9 @@
 import { Table } from "react-bootstrap";
 import { studentDataType } from "../../../../data/admin";
 import { InfoFillSVG } from "../../../../assets/admin/svg";
-import { UserPreviewModalContext } from "../../../../contexts/admin";
-import { useContext } from "react";
 import { getUserClass } from "../../../../utils/admin";
+import { useDispatch } from "react-redux";
+import { toggleShowUserPreview } from "../../../../features/admin/userpreviewSlice";
 
 interface StudTableViewProps {
     Users: studentDataType[]
@@ -13,10 +13,10 @@ interface StudTableViewProps {
 
 function StudentTableView({ Users, SN }: StudTableViewProps) {
 
-    const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext);
+    const dispatch = useDispatch();
 
     function handleProfilePreview(id: any) {
-        toggleShowUserPreview({ status: true, id });
+        dispatch(toggleShowUserPreview({ status: true, id }));
     }
 
     return (

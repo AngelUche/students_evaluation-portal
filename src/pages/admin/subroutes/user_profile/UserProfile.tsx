@@ -1,14 +1,12 @@
 // jshint esversion:6
-import { useContext } from "react";
-import { UserProfileModalContext } from "../../../../contexts/admin";
 import { UserProfileModal } from "../../../../components/admin/modals";
 import { UserProfileView } from "../../../../views/admin";
+import { useSelector } from "react-redux";
+import { RootState} from "../../../../store/admin";
 
 function UserProfilePage() {
     // Render the Profile Modal prompt or main profile page
-    const { showUserProfile } = useContext(UserProfileModalContext);
-
-    const { id: UserId, status: EmptyProfileStatus } = showUserProfile;
+    const { status: EmptyProfileStatus, id: UserId} = useSelector((store: RootState) => store.userProfile);
 
     return (
         <div className="w-full h-full">
@@ -20,7 +18,7 @@ function UserProfilePage() {
                 </div>
             )}
 
-            {/* Render nothing if no id is gotter */}
+            {/* Render nothing if no id is gotten */}
             {
                 UserId == undefined ? null : <UserProfileView />
             }

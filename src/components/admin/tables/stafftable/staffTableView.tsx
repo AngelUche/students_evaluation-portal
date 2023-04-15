@@ -1,10 +1,10 @@
 // jshint esversion:6
-import { Table } from "react-bootstrap";
+// import { Table } from "react-bootstrap";
 import { staffDataType, PositionData } from "../../../../data/admin";
 import { InfoFillSVG } from "../../../../assets/admin/svg";
-import { UserPreviewModalContext } from "../../../../contexts/admin";
-import { useContext } from "react";
 import { getUserPosition } from "../../../../utils/admin";
+import { useDispatch } from "react-redux";
+import { toggleShowUserPreview } from "../../../../features/admin/userpreviewSlice";
 
 interface StaffTableViewProps {
     Users: staffDataType[]
@@ -13,15 +13,15 @@ interface StaffTableViewProps {
 
 function StaffTableView({ Users, SN }: StaffTableViewProps) {
 
-    const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext);
+    const dispatch = useDispatch();
 
     function handleProfilePreview(id: any) {
-        toggleShowUserPreview({ status: true, id });
+        dispatch(toggleShowUserPreview({ status: true, id }));
     }
 
     return (
         <>
-            <Table className="max-w-[800px] w-full border-spacing-1 table-fixed">
+            <table className="max-w-[800px] w-full border-spacing-1 table-fixed">
                 <thead>
                     <tr className="[&>*]:p-2">
                         <th className="text-sm font-medium w-[40px] text-left">#</th>
@@ -51,7 +51,7 @@ function StaffTableView({ Users, SN }: StaffTableViewProps) {
                         })
                     }
                 </tbody>
-            </Table>
+            </table>
         </>
     );
 }

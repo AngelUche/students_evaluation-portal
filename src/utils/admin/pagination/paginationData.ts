@@ -1,8 +1,4 @@
 // jshint esversion:6
-
-import { studentDataType } from "../../../data/admin"
-
-
 function paginationData(Data: any[], currentPage: number, recordsPerPage: number) {
 
     // Get last index of the record of a requested page

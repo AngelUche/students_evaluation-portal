@@ -1,16 +1,19 @@
 // jshint esversion:6
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { retrieveUserData } from "../../../utils/admin";
-import { UserProfileModalContext } from "../../../contexts/admin";
+// import { UserProfileModalContext } from "../../../contexts/admin";
 import { EditSVG, CancelFillSVG } from "../../../assets/admin";;
 import { FormHeader, FormInput } from "../../../components/admin/userprofile";
 import { getUserPosition, getUserClass } from "../../../utils/admin";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleShowUserProfile } from "../../../features/admin/userprofileSlice";
 
 import { classData } from "../../../data/admin";
 import { UserType } from "../../../data/admin";
+import { RootState } from "../../../store/admin";
 
-const defaultUser: UserType  = {
-    id:"",
+const defaultUser: UserType = {
+    id: "",
     name: "",
     section: "",
     firstName: "",
@@ -26,7 +29,11 @@ const defaultUser: UserType  = {
 }
 
 function UserProfileView() {
-    const { showUserProfile, toggleShowUserProfile } = useContext(UserProfileModalContext);
+    const dispatch = useDispatch();
+    
+    const {id:UserProfileId} = useSelector((store:RootState) => store.userProfile);
+
+    // const { showUserProfile, toggleShowUserProfile } = useContext(UserProfileModalContext);
 
     const [editProfileStatus, setEditProfileStatus] = useState<boolean>(false);
 
@@ -42,7 +49,7 @@ function UserProfileView() {
 
     useEffect(() => {
         // Fetch user from data Base
-        const User = retrieveUserData(showUserProfile.id);
+        const User = retrieveUserData(UserProfileId);
 
         if (User) {
             // Set the users
@@ -61,7 +68,8 @@ function UserProfileView() {
     };
 
     function handleViewProfileClick() {
-        toggleShowUserProfile({ status: true, id: undefined });
+        // toggleShowUserProfile({ status: true, id: undefined });
+        dispatch(toggleShowUserProfile({ status: true, id: undefined }))
     }
 
     function openEditStatus() {
@@ -105,7 +113,7 @@ function UserProfileView() {
 
                 {/* Form Header */}
                 <div className="flex flex-col gap-5">
-                    <FormHeader userId={currentUser.id} userImage={currentUser.image} userFirstName={currentUser.firstName} userLastName={currentUser.lastName} userName={currentUser.name} userPosition={currentUser?.position} />
+                    <FormHeader userId={currentUser.id} userImage={currentUser.image} userFirstName={currentUser.firstName} userLastName={currentUser.lastName} userName={currentUser.name} userSection={currentUser?.section} />
 
                     {/* Form fields */}
                     <div className="py-1 flex flex-col gap-y-2 max-h-[51vh] overflow-y-auto">

@@ -1,38 +1,40 @@
 // jshint esversion:6
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserPreviewModalContext, UserProfileModalContext } from "../../../../contexts/admin";
 import { CancelSVG } from "../../../../assets/admin";
-import { retrieveUserData } from "../../../../utils/admin";
-import { getUserPosition,getUserClass } from "../../../../utils/admin";
-
-
-// Interface for the props of UserPreviewModal
-interface UserProfileModalProps {
-    id: string | undefined;
-}
+import { retrieveUserData, getUserPosition, getUserClass } from "../../../../utils/admin";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "../../../../store/admin";
+import { toggleShowUserPreview } from "../../../../features/admin/userpreviewSlice";
+import { toggleShowUserProfile } from "../../../../features/admin/userprofileSlice";
 
 /**
  * @desc: View a preview of the User profile | redirect to the main user profile page
  * @param id: Id used to retrieve user details from mock DB 
  * @returns User object containing details about User
  */
-function UserPreviewModal({ id }: UserProfileModalProps) {
-    // To enable from dashboard | disable User preview modal
-    const { showUserPreview, toggleShowUserPreview } = useContext(UserPreviewModalContext);
+function UserPreviewModal() {
 
-    // This will disable the Select User Profile prompt and redirect to the user profile main page
-    const { toggleShowUserProfile } = useContext(UserProfileModalContext);
+    const dispatch: AppDispatch = useDispatch();
+
+    const { status, id: UserId } = useSelector((store: RootState) => store.userPreview)
 
     // To enable redirection
     const navigate = useNavigate();
 
     // Fetch User Details
-    const User = retrieveUserData(showUserPreview.id!);
+    const User = retrieveUserData(UserId);
+    console.log("User gotten");
+    console.log(User);
+
 
     // Navigate to user profile upon request
     function handleViewProfileClick() {
-        toggleShowUserProfile({ status: false, id: showUserPreview.id });
+        // Close the user preview modal
+        dispatch(toggleShowUserPreview({ status: false, id: undefined }));
+        
+        // disable the user profile prompt modal to access profile directly
+        dispatch(toggleShowUserProfile({ status: false, id: UserId }));
+
         navigate("/admin/userprofile");
     }
 
@@ -72,7 +74,7 @@ function UserPreviewModal({ id }: UserProfileModalProps) {
                         }}>View Profile</button>
                         <button className="p-1 py-3 mt-3 flex justify-center items-center rounded bg-danger text-white hover:bg-[#a5201b] " onClick={(e) => {
                             e.stopPropagation();
-                            toggleShowUserPreview({ status: false, id: undefined })
+                            dispatch(toggleShowUserPreview({ status: false, id: undefined }));
                         }}><CancelSVG size={16} /></button>
                     </div>
                 </div>

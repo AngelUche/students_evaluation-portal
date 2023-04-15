@@ -1,16 +1,16 @@
 // jshint esversion:6
-import { useState, useContext } from "react";
+import { useState} from "react";
 import { PersonvcardSVG } from "../../../../assets/admin";
-import { UserProfileModalContext } from "../../../../contexts/admin";
 import { getUserPosition, getUserClass } from "../../../../utils/admin";
-
+import { toggleShowUserProfile } from "../../../../features/admin/userprofileSlice";
+import { useDispatch } from "react-redux";
 
 // Data fetched from server
 import { classData, AllData, PositionData } from "../../../../data/admin";
 
 function UserProfileModal() {
-    const { toggleShowUserProfile: toggleModal } = useContext(UserProfileModalContext);
-    
+    const dispatch = useDispatch();
+
     // Determine type of user to view profile
     const [selectedPosition, setSelectedPosition] = useState("");
 
@@ -22,8 +22,7 @@ function UserProfileModal() {
 
     // View profile
     function handleProfileSubmit() {
-        const id = selectedMember;
-        toggleModal({ status: false, id });
+        dispatch(toggleShowUserProfile({ status: false, id:selectedMember }))
     }
 
     return (

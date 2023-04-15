@@ -5,11 +5,11 @@ interface UserProfileFormHeaderProps {
     userName: string
     userFirstName: string
     userLastName: string
-    userPosition: string
+    userSection: string
     userId: string
 }
 
-function FormHeader({ userImage, userName, userFirstName, userLastName, userPosition, userId }: UserProfileFormHeaderProps) {
+function FormHeader({ userImage, userName, userFirstName, userLastName, userSection, userId }: UserProfileFormHeaderProps) {
     return (
         <div className="py-3 border-b-[1px] border-b-gray-400 flex items-center gap-3">
             {/* User Rounded Image */}
@@ -26,7 +26,7 @@ function FormHeader({ userImage, userName, userFirstName, userLastName, userPosi
 
             {/* User POSITION */}
             <div className="ml-auto text-xs text-gray-700 font-mono">
-                <p className="text-sm font-mono text-gray-600 uppercase" >{`${userPosition}`}</p>
+                <p className="text-sm font-mono text-gray-600 uppercase" >{`${userSection}`}</p>
             </div>
         </div>
 

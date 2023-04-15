@@ -1,17 +1,20 @@
 // jshint esversion:6
 import { NavLink } from "react-router-dom"
 import { HomeSVG, UserSVG, AddUserSVG, ResultSVG, MailSVG, KeySVG } from "../../../assets/admin"
-import { useContext, Fragment } from "react"
-import { UserPreviewModalContext, UserProfileModalContext } from "../../../contexts/admin"
+import { toggleShowUserPreview } from "../../../features/admin/userpreviewSlice"
+import { useDispatch } from "react-redux"
+import { toggleShowUserProfile } from "../../../features/admin/userprofileSlice"
+import { toggleAddUserPromptStatus } from "../../../features/admin/adduserSlice"
 
 function AsideNavigation() {
-    const { toggleShowUserProfile } = useContext(UserProfileModalContext);
-    const { toggleShowUserPreview } = useContext(UserPreviewModalContext)
+
+    const dispatch = useDispatch();
 
     // Close all modals upon any click on the side navigation bar
     function handleCloseAllModalsClick() {
-        toggleShowUserProfile({ status: true, id: undefined });
-        toggleShowUserPreview({ status: false, id: undefined });
+        dispatch(toggleShowUserPreview({ status: false, id: undefined }));
+        dispatch(toggleShowUserProfile({ status: true, id: undefined }));
+        dispatch(toggleAddUserPromptStatus({ status: true, type: undefined }));
     }
 
     return (
@@ -46,7 +49,7 @@ function AsideNavigation() {
                     </NavLink>
                     <NavLink to="passwordreset"
                         className={({ isActive }) => `p-4 pl-5 text-white flex justify-start items-center gap-5 hover:border-l-4 ${isActive ? "bg-sideNavbg px-5 border-l-4" : undefined}`}>
-                        <KeySVG size={25}/>
+                        <KeySVG size={25} />
                         <span className="text-xl">Reset Password</span>
                     </NavLink>
                 </div>

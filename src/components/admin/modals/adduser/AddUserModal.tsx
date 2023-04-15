@@ -1,20 +1,20 @@
 // jshint esversion:6
-import { useState, useContext } from "react";
+import { useState} from "react";
 import { PersonvcardSVG } from "../../../../assets/admin";
 import { PositionData } from "../../../../data/admin";
-import { AddUserModalContext } from "../../../../contexts/admin";
+import { toggleAddUserPromptStatus } from "../../../../features/admin/adduserSlice";
+import { useDispatch } from "react-redux";
 
 function AddUserModal() {
 
-    // Get Context values to toggle modal and set User
-    const { AddUserPromptStatus, toggleAddUserPromptStatus } = useContext(AddUserModalContext);
+    const dispatch = useDispatch();
 
     // Determine type of user to view profile
     const [selectedPosition, setSelectedPosition] = useState("");
 
     // Add New User upon submit
     function handleProfileSubmit() {
-        toggleAddUserPromptStatus({ status: false, type: selectedPosition });
+        dispatch(toggleAddUserPromptStatus({ status: false, type: selectedPosition }))
     }
 
     return (
