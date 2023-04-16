@@ -3,11 +3,11 @@ import { useState} from "react";
 import { PersonvcardSVG } from "../../../../assets/admin";
 import { PositionData } from "../../../../data/admin";
 import { toggleAddUserPromptStatus } from "../../../../features/admin/adduserSlice";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../../hooks/admin/redux";
 
 function AddUserModal() {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     // Determine type of user to view profile
     const [selectedPosition, setSelectedPosition] = useState("");

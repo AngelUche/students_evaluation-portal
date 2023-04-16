@@ -3,8 +3,8 @@
 import { staffDataType, PositionData } from "../../../../data/admin";
 import { InfoFillSVG } from "../../../../assets/admin/svg";
 import { getUserPosition } from "../../../../utils/admin";
-import { useDispatch } from "react-redux";
 import { toggleShowUserPreview } from "../../../../features/admin/userpreviewSlice";
+import { useAppDispatch } from "../../../../hooks/admin/redux";
 
 interface StaffTableViewProps {
     Users: staffDataType[]
@@ -13,7 +13,7 @@ interface StaffTableViewProps {
 
 function StaffTableView({ Users, SN }: StaffTableViewProps) {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     function handleProfilePreview(id: any) {
         dispatch(toggleShowUserPreview({ status: true, id }));

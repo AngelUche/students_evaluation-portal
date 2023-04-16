@@ -2,10 +2,9 @@
 import { useNavigate } from "react-router-dom";
 import { CancelSVG } from "../../../../assets/admin";
 import { retrieveUserData, getUserPosition, getUserClass } from "../../../../utils/admin";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "../../../../store/admin";
 import { toggleShowUserPreview } from "../../../../features/admin/userpreviewSlice";
 import { toggleShowUserProfile } from "../../../../features/admin/userprofileSlice";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/admin/redux";
 
 /**
  * @desc: View a preview of the User profile | redirect to the main user profile page
@@ -14,9 +13,9 @@ import { toggleShowUserProfile } from "../../../../features/admin/userprofileSli
  */
 function UserPreviewModal() {
 
-    const dispatch: AppDispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const { status, id: UserId } = useSelector((store: RootState) => store.userPreview)
+    const { status, id: UserId } = useAppSelector((store) => store.userPreview)
 
     // To enable redirection
     const navigate = useNavigate();

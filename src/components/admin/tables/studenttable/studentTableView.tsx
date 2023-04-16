@@ -1,10 +1,9 @@
 // jshint esversion:6
-import { Table } from "react-bootstrap";
 import { studentDataType } from "../../../../data/admin";
 import { InfoFillSVG } from "../../../../assets/admin/svg";
 import { getUserClass } from "../../../../utils/admin";
-import { useDispatch } from "react-redux";
 import { toggleShowUserPreview } from "../../../../features/admin/userpreviewSlice";
+import { useAppDispatch } from "../../../../hooks/admin/redux";
 
 interface StudTableViewProps {
     Users: studentDataType[]
@@ -13,7 +12,7 @@ interface StudTableViewProps {
 
 function StudentTableView({ Users, SN }: StudTableViewProps) {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     function handleProfilePreview(id: any) {
         dispatch(toggleShowUserPreview({ status: true, id }));
@@ -21,7 +20,7 @@ function StudentTableView({ Users, SN }: StudTableViewProps) {
 
     return (
         <>
-            <Table className="max-w-[800px] w-full border-spacing-1 table-fixed">
+            <table className="max-w-[800px] w-full border-spacing-1 table-fixed">
                 <thead>
                     <tr className="[&>*]:p-2">
                         <th className="text-sm font-medium w-[40px] text-left">#</th>
@@ -51,7 +50,7 @@ function StudentTableView({ Users, SN }: StudTableViewProps) {
                         })
                     }
                 </tbody>
-            </Table>
+            </table>
         </>
     );
 }

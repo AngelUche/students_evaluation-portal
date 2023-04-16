@@ -3,13 +3,13 @@ import { useState} from "react";
 import { PersonvcardSVG } from "../../../../assets/admin";
 import { getUserPosition, getUserClass } from "../../../../utils/admin";
 import { toggleShowUserProfile } from "../../../../features/admin/userprofileSlice";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../../hooks/admin/redux";
 
 // Data fetched from server
 import { classData, AllData, PositionData } from "../../../../data/admin";
 
 function UserProfileModal() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     // Determine type of user to view profile
     const [selectedPosition, setSelectedPosition] = useState("");

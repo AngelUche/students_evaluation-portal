@@ -1,16 +1,15 @@
 // jshint esversion:6
 import { HomeView } from "../../../../views/admin";
 import { UserPreviewModal } from "../../../../components/admin/modals";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../../store/admin";
 import { toggleShowUserPreview } from "../../../../features/admin/userpreviewSlice";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/admin/redux";
 
 function Home() {
   // Create the dispatch to carry out actions
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // Get the state from the store
-  const { status: showUserPreviewStatus } = useSelector((store: RootState) => store.userPreview)
+  const { status: showUserPreviewStatus } = useAppSelector((store) => store.userPreview)
 
   return (
 

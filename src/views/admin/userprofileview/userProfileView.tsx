@@ -1,16 +1,14 @@
 // jshint esversion:6
 import { useEffect, useState } from "react";
 import { retrieveUserData } from "../../../utils/admin";
-// import { UserProfileModalContext } from "../../../contexts/admin";
 import { EditSVG, CancelFillSVG } from "../../../assets/admin";;
 import { FormHeader, FormInput } from "../../../components/admin/userprofile";
 import { getUserPosition, getUserClass } from "../../../utils/admin";
-import { useSelector, useDispatch } from "react-redux";
 import { toggleShowUserProfile } from "../../../features/admin/userprofileSlice";
+import { useAppSelector, useAppDispatch } from "../../../hooks/admin/redux";
 
 import { classData } from "../../../data/admin";
 import { UserType } from "../../../data/admin";
-import { RootState } from "../../../store/admin";
 
 const defaultUser: UserType = {
     id: "",
@@ -29,9 +27,9 @@ const defaultUser: UserType = {
 }
 
 function UserProfileView() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     
-    const {id:UserProfileId} = useSelector((store:RootState) => store.userProfile);
+    const { id: UserProfileId } = useAppSelector((store) => store.userProfile);
 
     // const { showUserProfile, toggleShowUserProfile } = useContext(UserProfileModalContext);
 

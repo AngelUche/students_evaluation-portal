@@ -2,13 +2,13 @@
 import { NavLink } from "react-router-dom"
 import { HomeSVG, UserSVG, AddUserSVG, ResultSVG, MailSVG, KeySVG } from "../../../assets/admin"
 import { toggleShowUserPreview } from "../../../features/admin/userpreviewSlice"
-import { useDispatch } from "react-redux"
 import { toggleShowUserProfile } from "../../../features/admin/userprofileSlice"
 import { toggleAddUserPromptStatus } from "../../../features/admin/adduserSlice"
+import { useAppDispatch } from "../../../hooks/admin/redux"
 
 function AsideNavigation() {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     // Close all modals upon any click on the side navigation bar
     function handleCloseAllModalsClick() {

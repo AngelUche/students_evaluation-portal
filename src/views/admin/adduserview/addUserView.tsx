@@ -3,9 +3,8 @@ import { useState } from "react";
 import { CancelFillSVG } from "../../../assets/admin";
 import { UploadImage } from "../../../components/admin";
 import { classData } from "../../../data/admin";
-import { useDispatch, useSelector } from "react-redux";
 import { toggleAddUserPromptStatus } from "../../../features/admin/adduserSlice";
-import { AppDispatch, RootState } from "../../../store/admin";
+import { useAppDispatch, useAppSelector } from "../../../hooks/admin/redux";
 
 interface UserProfileInterface {
     id: number;
@@ -24,9 +23,9 @@ interface UserProfileInterface {
 
 function AddUserView() {
 
-    const dispatch: AppDispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const { status, type: UserPositionType } = useSelector((store: RootState) => store.addUser);
+    const { status, type: UserPositionType } = useAppSelector((store) => store.addUser);
 
     const [imageUpload, setImageUpload] = useState<File>();
 
